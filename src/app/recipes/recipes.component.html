@@ -7,4 +7,4 @@
 @for (recipe of recipes; track recipe.id) {
 <app-recipe-card [recipe]="recipe" (click)="onSelectRecipe(recipe.id)" />
 }
-<button>+</button>
+<button type="button" (click)="addRecipe()">+</button>

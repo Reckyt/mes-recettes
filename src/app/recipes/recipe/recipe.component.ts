@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Recipe } from '../../model/recipe';
 
 @Component({
@@ -8,4 +8,9 @@ import { Recipe } from '../../model/recipe';
 })
 export class RecipeComponent {
   @Input({ required: true }) recipe!: Recipe;
+  @Output() isAddingRecipe = new EventEmitter();
+
+  addRecipe() {
+    this.isAddingRecipe.emit();
+  }
 }

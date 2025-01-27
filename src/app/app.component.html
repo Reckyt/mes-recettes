@@ -1,9 +1,13 @@
 <app-header />
 <main>
-  <app-recipes [recipes]="recipes" (select)="onSelectRecipe($event)" />
-  @if(selectedRecipe) {
-  <app-recipe [recipe]="selectedRecipe" />
-  } @else {
-  <p>Selectionner une recette</p>
+  <app-recipes
+    [recipes]="recipes"
+    (select)="onSelectRecipe($event)"
+    (isAddingRecipe)="onAddRecipe()"
+  />
+  @if(selectedRecipe && !addRecipe) {
+  <app-recipe [recipe]="selectedRecipe" (isAddingRecipe)="onAddRecipe()" />
+  } @else if(addRecipe ) {
+  <app-new-recipe (isAddingRecipe)="onAddRecipe()" />
   }
 </main>

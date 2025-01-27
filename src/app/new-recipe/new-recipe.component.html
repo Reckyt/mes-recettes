@@ -1,0 +1,37 @@
+<form (ngSubmit)="onSubmit()">
+  <input type="text" id="name" name="name" [(ngModel)]="enteredName" />
+  <button (click)="addRecipe()">Annuler</button>
+  <button (submit)="addRecipe()">Enregistrer</button>
+  <div>
+    <img src="" alt="" />
+    <div>
+      <p>
+        Préparation
+        <input
+          type="number"
+          id="preparation_time"
+          name="preparation_time"
+          [(ngModel)]="enteredPreparationTime"
+        />
+        mins
+      </p>
+      <p>
+        Cuisson
+        <input
+          type="number"
+          id="cooking_time"
+          name="cooking_time"
+          [(ngModel)]="enteredCookingTime"
+        />mins
+      </p>
+    </div>
+  </div>
+  <div>
+    <h5>Ingrédients</h5>
+    <textarea name="" id=""></textarea>
+  </div>
+  <div>
+    <h5>Instructions</h5>
+    <textarea name="" id=""></textarea>
+  </div>
+</form>

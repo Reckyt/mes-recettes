@@ -12,8 +12,13 @@ import { Recipe } from '../model/recipe';
 export class RecipesComponent {
   @Input({ required: true }) recipes!: Recipe[];
   @Output() select = new EventEmitter();
+  @Output() isAddingRecipe = new EventEmitter();
 
   onSelectRecipe(reciperId: string) {
     this.select.emit(reciperId);
+  }
+
+  addRecipe() {
+    this.isAddingRecipe.emit();
   }
 }
