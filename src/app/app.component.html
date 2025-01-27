@@ -1,1 +1,9 @@
 <app-header />
+<main>
+  <app-recipes [recipes]="recipes" (select)="onSelectRecipe($event)" />
+  @if(selectedRecipe) {
+  <app-recipe [recipe]="selectedRecipe" />
+  } @else {
+  <p>Selectionner une recette</p>
+  }
+</main>

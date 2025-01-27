@@ -1,0 +1,10 @@
+<div class="container">
+  <div id="logo">
+    <img src="meal.png" alt="plat" />
+  </div>
+  <h2>Mes Recettes</h2>
+</div>
+@for (recipe of recipes; track recipe.id) {
+<app-recipe-card [recipe]="recipe" (click)="onSelectRecipe(recipe.id)" />
+}
+<button>+</button>

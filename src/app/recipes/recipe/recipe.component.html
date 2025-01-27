@@ -1,0 +1,28 @@
+<h1>{{ recipe.name }}</h1>
+<div>
+  <img src="" alt="" />
+  <div>
+    <p>Préparation {{ recipe.preparation_time }} mins</p>
+    <p>Cuisson {{ recipe.cooking_time }} mins</p>
+  </div>
+</div>
+<div>
+  <h5>Ingrédients</h5>
+  <ul>
+    @for(ingredient of recipe.ingredients; track ingredient.name) {
+
+    <li>{{ ingredient.quantity }} {{ ingredient.name }}</li>
+    }
+  </ul>
+  <button>Ajouter des ingrédients</button>
+</div>
+<div>
+  <h5>Instructions</h5>
+  <ol>
+    @for(instruction of recipe.instructions; track instruction) {
+
+    <li>{{ instruction }}</li>
+    }
+  </ol>
+  <button>Ajouter des instructions</button>
+</div>
