@@ -18,7 +18,7 @@ export class RecipesComponent {
     this.select.emit(reciperId);
   }
 
-  addRecipe() {
+  onAddRecipe() {
     this.isAddingRecipe.emit();
   }
 }

@@ -1,7 +1,7 @@
 <form (ngSubmit)="onSubmit()">
   <input type="text" id="name" name="name" [(ngModel)]="enteredName" />
-  <button (click)="addRecipe()">Annuler</button>
-  <button (submit)="addRecipe()">Enregistrer</button>
+  <button type="button" (click)="onAddRecipe()">Annuler</button>
+  <button type="submit">Enregistrer</button>
   <div>
     <img src="" alt="" />
     <div>

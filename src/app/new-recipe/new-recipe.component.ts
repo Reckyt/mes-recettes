@@ -15,11 +15,12 @@ export class NewRecipeComponent {
   enteredCookingTime = 0;
   private recipesService = inject(RecipesService);
 
-  addRecipe() {
+  onAddRecipe() {
     this.isAddingRecipe.emit();
   }
 
   onSubmit() {
+    console.log('🔥💧  onSubmit:');
     this.recipesService.addRecipe({
       name: this.enteredName,
       preparation_time: this.enteredPreparationTime,

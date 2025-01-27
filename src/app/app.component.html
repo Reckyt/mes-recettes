@@ -5,9 +5,11 @@
     (select)="onSelectRecipe($event)"
     (isAddingRecipe)="onAddRecipe()"
   />
-  @if(selectedRecipe && !addRecipe) {
+  @if(selectedRecipe && !isAddingRecipe) {
   <app-recipe [recipe]="selectedRecipe" (isAddingRecipe)="onAddRecipe()" />
-  } @else if(addRecipe ) {
+  } @else if(isAddingRecipe ) {
   <app-new-recipe (isAddingRecipe)="onAddRecipe()" />
+  } @else {
+  <p>Aucune recette sélectionné</p>
   }
 </main>

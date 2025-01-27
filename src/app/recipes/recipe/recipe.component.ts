@@ -10,7 +10,7 @@ export class RecipeComponent {
   @Input({ required: true }) recipe!: Recipe;
   @Output() isAddingRecipe = new EventEmitter();
 
-  addRecipe() {
+  onAddRecipe() {
     this.isAddingRecipe.emit();
   }
 }

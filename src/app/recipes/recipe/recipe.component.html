@@ -14,7 +14,7 @@
     <li>{{ ingredient.quantity }} {{ ingredient.name }}</li>
     }
   </ul>
-  <button type="button" (click)="addRecipe()">Ajouter des ingrédients</button>
+  <button type="button" (click)="onAddRecipe()">Ajouter des ingrédients</button>
 </div>
 <div>
   <h5>Instructions</h5>
@@ -24,5 +24,7 @@
     <li>{{ instruction }}</li>
     }
   </ol>
-  <button type="button" (click)="addRecipe()">Ajouter des instructions</button>
+  <button type="button" (click)="onAddRecipe()">
+    Ajouter des instructions
+  </button>
 </div>

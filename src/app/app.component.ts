@@ -19,7 +19,7 @@ import { RecipesService } from './recipes/recipes.service';
 })
 export class AppComponent {
   selectedRecipeId?: string;
-  addRecipe: boolean = false;
+  isAddingRecipe: boolean = false;
 
   constructor(private recipesService: RecipesService) {}
 
@@ -36,6 +36,6 @@ export class AppComponent {
   }
 
   onAddRecipe() {
-    this.addRecipe = !this.addRecipe;
+    this.isAddingRecipe = !this.isAddingRecipe;
   }
 }
