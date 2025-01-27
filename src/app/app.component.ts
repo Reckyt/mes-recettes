@@ -5,6 +5,7 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { RecipeComponent } from './recipes/recipe/recipe.component';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
 import { RecipesService } from './recipes/recipes.service';
+import { Recipe } from './model/recipe';
 
 @Component({
   selector: 'app-root',
@@ -32,7 +33,9 @@ export class AppComponent {
   }
 
   get selectedRecipe() {
-    return this.recipes.find((recipe) => recipe.id === this.selectedRecipeId);
+    return this.recipes.find(
+      (recipe: Recipe) => recipe.id === this.selectedRecipeId
+    );
   }
 
   onAddRecipe() {

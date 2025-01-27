@@ -1,4 +1,9 @@
-<h1>{{ recipe.name }}</h1>
+<div class="container-title">
+  <h1>{{ recipe.name }}</h1>
+  <button type="button" (click)="onDeleteRecipe()">
+    <img src="cross.png" alt="supprimer" />
+  </button>
+</div>
 <div>
   <img src="" alt="" />
   <div>

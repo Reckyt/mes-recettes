@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { recipes } from '../../asset/recipesList';
-import { NewRecipeData } from '../model/recipe';
+import { NewRecipeData, Recipe } from '../model/recipe';
 
 @Injectable({ providedIn: 'root' })
 export class RecipesService {
@@ -23,7 +23,7 @@ export class RecipesService {
     this.recipes.push({
       id: new Date().getTime().toString(),
       name: recipeData.name,
-      type: '',
+      tags: [],
       portions: 0,
       preparation_time: recipeData.preparation_time,
       cooking_time: recipeData.cooking_time,
@@ -33,10 +33,10 @@ export class RecipesService {
     this.saveRecipes();
   }
 
-  // removeRecipe(id: string) {
-  //   this.recipes = this.recipes.filter((recipe) => recipe.id !== id);
-  //   this.saveRecipes();
-  // }
+  removeRecipe(id: string) {
+    this.recipes = this.recipes.filter((recipe: Recipe) => recipe.id !== id);
+    this.saveRecipes();
+  }
 
   private saveRecipes() {
     localStorage.setItem('recipes', JSON.stringify(this.recipes));
