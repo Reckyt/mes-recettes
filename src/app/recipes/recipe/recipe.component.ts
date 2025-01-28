@@ -10,13 +10,14 @@ import { RecipesService } from '../recipes.service';
 })
 export class RecipeComponent {
   @Input({ required: true }) recipe!: Recipe;
-  @Output() isAddingRecipe = new EventEmitter();
+  @Output() isUpdatingRecipe = new EventEmitter();
 
   private recipesService = inject(RecipesService);
 
-  onAddRecipe() {
-    this.isAddingRecipe.emit();
+  onUpdateRecipe() {
+    this.isUpdatingRecipe.emit();
   }
+
   onDeleteRecipe() {
     this.recipesService.removeRecipe(this.recipe.id);
   }

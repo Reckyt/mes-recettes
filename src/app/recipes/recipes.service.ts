@@ -27,14 +27,34 @@ export class RecipesService {
       portions: 0,
       preparation_time: recipeData.preparation_time,
       cooking_time: recipeData.cooking_time,
-      ingredients: [],
-      instructions: [],
+      description: recipeData.description,
+      ingredients: recipeData.ingredients,
+      instructions: recipeData.instructions,
     });
     this.saveRecipes();
   }
 
   removeRecipe(id: string) {
     this.recipes = this.recipes.filter((recipe: Recipe) => recipe.id !== id);
+    this.saveRecipes();
+  }
+
+  updateRecipe(id: string, recipeData: NewRecipeData) {
+    const recipesUpdated = this.recipes.map((recipe) => {
+      if (recipe.id === id) {
+        return {
+          ...recipe,
+          name: recipeData.name,
+          preparation_time: recipeData.preparation_time,
+          cooking_time: recipeData.cooking_time,
+          description: recipeData.description,
+          ingredients: recipeData.ingredients,
+          instructions: recipeData.instructions,
+        };
+      }
+      return recipe;
+    });
+    this.recipes = recipesUpdated;
     this.saveRecipes();
   }
 

@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+.icons button {
+  margin: 0 0.5rem;
+}
+
 button img {
   width: 1rem;
 }

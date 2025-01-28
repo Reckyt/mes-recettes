@@ -26,12 +26,26 @@
       </p>
     </div>
   </div>
+  <h5>Description</h5>
+  <textarea
+    name="description"
+    id="description"
+    [(ngModel)]="enteredDescription"
+  ></textarea>
   <div>
     <h5>Ingrédients</h5>
-    <textarea name="" id=""></textarea>
+    <textarea
+      name="enteredIngredients"
+      id="enteredIngredients"
+      [(ngModel)]="enteredIngredients"
+    ></textarea>
   </div>
   <div>
     <h5>Instructions</h5>
-    <textarea name="" id=""></textarea>
+    <textarea
+      name="enteredInstructions"
+      id="enteredInstructions"
+      [(ngModel)]="enteredInstructions"
+    ></textarea>
   </div>
 </form>

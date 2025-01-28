@@ -14,8 +14,8 @@ export class RecipesComponent {
   @Output() select = new EventEmitter();
   @Output() isAddingRecipe = new EventEmitter();
 
-  onSelectRecipe(reciperId: string) {
-    this.select.emit(reciperId);
+  onSelectRecipe(recipeId: string) {
+    this.select.emit(recipeId);
   }
 
   onAddRecipe() {

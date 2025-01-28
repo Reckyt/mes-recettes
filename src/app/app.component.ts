@@ -3,9 +3,10 @@ import { Component } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { RecipeComponent } from './recipes/recipe/recipe.component';
-import { NewRecipeComponent } from './new-recipe/new-recipe.component';
+import { NewRecipeComponent } from './recipes/new-recipe/new-recipe.component';
 import { RecipesService } from './recipes/recipes.service';
 import { Recipe } from './model/recipe';
+import { UpdateRecipeComponent } from './recipes/update-recipe/update-recipe.component';
 
 @Component({
   selector: 'app-root',
@@ -16,11 +17,13 @@ import { Recipe } from './model/recipe';
     RecipesComponent,
     RecipeComponent,
     NewRecipeComponent,
+    UpdateRecipeComponent,
   ],
 })
 export class AppComponent {
   selectedRecipeId?: string;
   isAddingRecipe: boolean = false;
+  isUpdatingRecipe: boolean = false;
 
   constructor(private recipesService: RecipesService) {}
 
@@ -40,5 +43,9 @@ export class AppComponent {
 
   onAddRecipe() {
     this.isAddingRecipe = !this.isAddingRecipe;
+  }
+
+  onUpdateRecipe() {
+    this.isUpdatingRecipe = !this.isUpdatingRecipe;
   }
 }

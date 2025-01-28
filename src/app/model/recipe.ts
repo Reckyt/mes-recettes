@@ -3,19 +3,19 @@ export interface Recipe {
   name: string;
   portions: number;
   description?: string;
-  ingredients: Ingredient[];
   preparation_time: number;
   cooking_time: number;
-  instructions: string[];
+  ingredients: string;
+  instructions: string;
   tags: Tag[];
-  variants?: string[];
+  variants?: string;
 }
 
-export interface Ingredient {
-  name: string;
-  quantity: string;
-  detail?: string;
-}
+// export interface Ingredient {
+//   name: string;
+//   quantity: string;
+//   detail?: string;
+// }
 
 export interface Tag {
   id: string;
@@ -24,13 +24,10 @@ export interface Tag {
 }
 
 export interface NewRecipeData {
-  // type: string;
   name: string;
-  // portions: number;
-  // description: string;
-  // ingredients: Ingredient[];
+  description: string;
+  ingredients: string;
   preparation_time: number;
   cooking_time: number;
-  // instructions: string[];
-  // variants?: string[];
+  instructions: string;
 }

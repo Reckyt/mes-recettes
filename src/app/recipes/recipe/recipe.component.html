@@ -1,8 +1,13 @@
 <div class="container-title">
   <h1>{{ recipe.name }}</h1>
-  <button type="button" (click)="onDeleteRecipe()">
-    <img src="cross.png" alt="supprimer" />
-  </button>
+  <div class="icons">
+    <button type="button" (click)="onUpdateRecipe()">
+      <img src="pencil.png" alt="modifier" />
+    </button>
+    <button type="button" (click)="onDeleteRecipe()">
+      <img src="cross.png" alt="supprimer" />
+    </button>
+  </div>
 </div>
 <div>
   <img src="" alt="" />
@@ -11,25 +16,19 @@
     <p>Cuisson {{ recipe.cooking_time }} mins</p>
   </div>
 </div>
+<h5>Description</h5>
+<p>{{ recipe.description }}</p>
 <div>
   <h5>Ingrédients</h5>
-  <ul>
-    @for(ingredient of recipe.ingredients; track ingredient.name) {
-
-    <li>{{ ingredient.quantity }} {{ ingredient.name }}</li>
-    }
-  </ul>
-  <button type="button" (click)="onAddRecipe()">Ajouter des ingrédients</button>
+  <p>{{ recipe.ingredients }}</p>
+  <button type="button" (click)="onUpdateRecipe()">
+    Ajouter des ingrédients
+  </button>
 </div>
 <div>
   <h5>Instructions</h5>
-  <ol>
-    @for(instruction of recipe.instructions; track instruction) {
-
-    <li>{{ instruction }}</li>
-    }
-  </ol>
-  <button type="button" (click)="onAddRecipe()">
+  <p>{{ recipe.instructions }}</p>
+  <button type="button" (click)="onUpdateRecipe()">
     Ajouter des instructions
   </button>
 </div>

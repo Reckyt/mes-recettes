@@ -1,6 +1,7 @@
 import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RecipesService } from '../recipes/recipes.service';
+
+import { RecipesService } from '../recipes.service';
 
 @Component({
   selector: 'app-new-recipe',
@@ -11,8 +12,12 @@ import { RecipesService } from '../recipes/recipes.service';
 export class NewRecipeComponent {
   @Output() isAddingRecipe = new EventEmitter();
   enteredName = '';
+  enteredDescription = '';
   enteredPreparationTime = 0;
   enteredCookingTime = 0;
+  enteredIngredients = '';
+  enteredInstructions = '';
+
   private recipesService = inject(RecipesService);
 
   onAddRecipe() {
@@ -20,11 +25,13 @@ export class NewRecipeComponent {
   }
 
   onSubmit() {
-    console.log('🔥💧  onSubmit:');
     this.recipesService.addRecipe({
       name: this.enteredName,
       preparation_time: this.enteredPreparationTime,
       cooking_time: this.enteredCookingTime,
+      description: this.enteredDescription,
+      ingredients: this.enteredIngredients,
+      instructions: this.enteredInstructions,
     });
     this.isAddingRecipe.emit();
   }

@@ -5,10 +5,15 @@
     (select)="onSelectRecipe($event)"
     (isAddingRecipe)="onAddRecipe()"
   />
-  @if(selectedRecipe && !isAddingRecipe) {
-  <app-recipe [recipe]="selectedRecipe" (isAddingRecipe)="onAddRecipe()" />
+  @if(selectedRecipe && !isAddingRecipe && !isUpdatingRecipe) {
+  <app-recipe [recipe]="selectedRecipe" (isUpdatingRecipe)="onUpdateRecipe()" />
   } @else if(isAddingRecipe ) {
   <app-new-recipe (isAddingRecipe)="onAddRecipe()" />
+  } @else if(isUpdatingRecipe ) {
+  <app-update-recipe
+    [recipe]="selectedRecipe"
+    (isUpdatingRecipe)="onUpdateRecipe()"
+  />
   } @else {
   <p>Aucune recette sélectionné</p>
   }
