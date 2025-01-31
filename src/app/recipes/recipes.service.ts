@@ -5,7 +5,7 @@ import { NewRecipeData, Recipe } from '../model/recipe';
 
 @Injectable({ providedIn: 'root' })
 export class RecipesService {
-  private recipes = recipes;
+  private recipes: Recipe[] = recipes;
 
   constructor() {
     const recipes = localStorage.getItem('recipes');

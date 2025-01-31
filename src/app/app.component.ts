@@ -7,6 +7,7 @@ import { NewRecipeComponent } from './recipes/new-recipe/new-recipe.component';
 import { RecipesService } from './recipes/recipes.service';
 import { Recipe } from './model/recipe';
 import { UpdateRecipeComponent } from './recipes/update-recipe/update-recipe.component';
+import { MealsComponent } from './meals/meals.component';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ import { UpdateRecipeComponent } from './recipes/update-recipe/update-recipe.com
     RecipeComponent,
     NewRecipeComponent,
     UpdateRecipeComponent,
+    MealsComponent,
   ],
 })
 export class AppComponent {
