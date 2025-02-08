@@ -8,6 +8,7 @@ import { RecipesService } from './recipes/recipes.service';
 import { Recipe } from './model/recipe';
 import { UpdateRecipeComponent } from './recipes/update-recipe/update-recipe.component';
 import { MealsComponent } from './meals/meals.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -15,39 +16,32 @@ import { MealsComponent } from './meals/meals.component';
   styleUrl: './app.component.css',
   imports: [
     HeaderComponent,
-    RecipesComponent,
-    RecipeComponent,
-    NewRecipeComponent,
-    UpdateRecipeComponent,
-    MealsComponent,
+    // RecipeComponent,
+    // NewRecipeComponent,
+    // UpdateRecipeComponent,
+    RouterOutlet,
   ],
 })
 export class AppComponent {
-  selectedRecipeId?: string;
-  isAddingRecipe: boolean = false;
-  isUpdatingRecipe: boolean = false;
-
-  constructor(private recipesService: RecipesService) {}
-
-  get recipes() {
-    return this.recipesService.getRecipes();
-  }
-
-  onSelectRecipe(id: string) {
-    this.selectedRecipeId = id;
-  }
-
-  get selectedRecipe() {
-    return this.recipes.find(
-      (recipe: Recipe) => recipe.id === this.selectedRecipeId
-    );
-  }
-
-  onAddRecipe() {
-    this.isAddingRecipe = !this.isAddingRecipe;
-  }
-
-  onUpdateRecipe() {
-    this.isUpdatingRecipe = !this.isUpdatingRecipe;
-  }
+  // selectedRecipeId?: string;
+  // isAddingRecipe: boolean = false;
+  // isUpdatingRecipe: boolean = false;
+  // constructor(private recipesService: RecipesService) {}
+  // get recipes() {
+  //   return this.recipesService.getRecipes();
+  // }
+  // onSelectRecipe(id: string) {
+  //   this.selectedRecipeId = id;
+  // }
+  // get selectedRecipe() {
+  //   return this.recipes.find(
+  //     (recipe: Recipe) => recipe.id === this.selectedRecipeId
+  //   );
+  // }
+  // onAddRecipe() {
+  //   this.isAddingRecipe = !this.isAddingRecipe;
+  // }
+  // onUpdateRecipe() {
+  //   this.isUpdatingRecipe = !this.isUpdatingRecipe;
+  // }
 }

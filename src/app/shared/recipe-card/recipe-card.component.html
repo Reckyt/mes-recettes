@@ -1,4 +1,8 @@
-<div class="container">
+<div
+  class="container"
+  [routerLink]="['/recettes', recipe.id]"
+  routerLinkActive="selected"
+>
   <div>
     <h4>{{ recipe.name }}</h4>
     <p>{{ recipe.cooking_time + recipe.preparation_time }} mins</p>

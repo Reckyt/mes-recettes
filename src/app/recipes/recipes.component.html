@@ -1,10 +1,31 @@
-<div class="container">
-  <div id="logo">
-    <img src="meal.png" alt="plat" />
+<div class="main-container">
+  <div class="recipes-list">
+    <div class="recipes-header">
+      <div id="logo">
+        <img src="meal.png" alt="plat" />
+      </div>
+      <h2>Mes Recettes</h2>
+    </div>
+
+    @for (recipe of recipes; track recipe.id) {
+    <app-recipe-card [recipe]="recipe" (click)="onSelectRecipe(recipe.id)" />
+    }
+
+    <button type="button" (click)="onAddRecipe()">+</button>
   </div>
-  <h2>Mes Recettes</h2>
+
+  @if(selectedRecipe && !isAddingRecipe && !isUpdatingRecipe) {
+  <app-recipe [recipe]="selectedRecipe" (isUpdatingRecipe)="onUpdateRecipe()" />
+  } @else if(isAddingRecipe ) {
+  <app-new-recipe (isAddingRecipe)="onAddRecipe()" />
+  } @else if(isUpdatingRecipe ) {
+  <app-update-recipe
+    [recipe]="selectedRecipe"
+    (isUpdatingRecipe)="onUpdateRecipe()"
+  />
+  } @else {
+  <app-no-recipe />
+  }
+
+  <router-outlet />
 </div>
-@for (recipe of recipes; track recipe.id) {
-<app-recipe-card [recipe]="recipe" (click)="onSelectRecipe(recipe.id)" />
-}
-<button type="button" (click)="onAddRecipe()">+</button>

@@ -1,11 +1,22 @@
-.container {
+.main-container {
+  display: flex;
+  flex-direction: row;
+  height: 94vh;
+}
+
+.recipes-list {
+  width: 50%;
+  border: 1px solid red;
+}
+
+.recipes-header {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   gap: 1rem;
   margin: 1rem;
-  /* width: 50%; */
+  /* width: 100%; */
 }
 
 #logo {
@@ -20,4 +31,17 @@
 #logo img {
   width: 100%;
   filter: drop-shadow(0 0 4px rgba(29, 29, 29, 0.35));
+}
+
+/* .edit-recipe {
+  border: 1px solid green;
+} */
+
+app-recipe,
+app-new-recipe,
+app-update-recipe,
+app-no-recipe {
+  width: 50%;
+  margin: 0 2rem;
+  /* border: 1px solid red; */
 }

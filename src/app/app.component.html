@@ -1,6 +1,10 @@
 <app-header />
 <main>
-  <app-recipes
+  <div>
+    <router-outlet />
+  </div>
+
+  <!-- <app-recipes
     [recipes]="recipes"
     (select)="onSelectRecipe($event)"
     (isAddingRecipe)="onAddRecipe()"
@@ -16,6 +20,5 @@
   />
   } @else {
   <p>Aucune recette sélectionné</p>
-  }
-  <app-meals />
+  } -->
 </main>
