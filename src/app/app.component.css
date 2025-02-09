@@ -1,4 +1,12 @@
-/* main {
+main {
   display: flex;
   flex-direction: row;
-} */
+}
+
+app-sidebar {
+  width: 8%;
+}
+
+.main-container {
+  width: 92%;
+}

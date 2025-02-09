@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 import { RecipeCardComponent } from '../shared/recipe-card/recipe-card.component';
 import { Recipe } from '../model/recipe';
@@ -7,7 +8,6 @@ import { NewRecipeComponent } from './new-recipe/new-recipe.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { UpdateRecipeComponent } from './update-recipe/update-recipe.component';
 import { NoRecipeComponent } from './no-recipe/no-recipe.component';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-recipes',
@@ -23,9 +23,6 @@ import { RouterOutlet } from '@angular/router';
   ],
 })
 export class RecipesComponent {
-  // @Input({ required: true }) recipes!: Recipe[];
-  // @Output() select = new EventEmitter();
-  // @Output() isAddingRecipe = new EventEmitter();
   selectedRecipeId?: string;
   isAddingRecipe: boolean = false;
   isUpdatingRecipe: boolean = false;

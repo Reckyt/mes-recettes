@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Recipe } from '../../model/recipe';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+
+import { Recipe } from '../../model/recipe';
 
 @Component({
   selector: 'app-recipe-card',
