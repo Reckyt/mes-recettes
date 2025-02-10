@@ -4,12 +4,12 @@
   height: 94vh;
 }
 
-.recipes-list {
+.shopping-list {
   width: 50%;
   border: 1px solid red;
 }
 
-.recipes-header {
+.shopping-list-header {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -32,10 +32,8 @@
   filter: drop-shadow(0 0 4px rgba(29, 29, 29, 0.35));
 }
 
-app-recipe,
-app-new-recipe,
-app-update-recipe,
-app-no-recipe {
+app-list,
+app-no-list {
   width: 50%;
   margin: 0 2rem;
 }

@@ -1,0 +1,26 @@
+@if(isAddingList) {
+<app-modal />
+}
+
+<div class="main-container">
+  <div class="shopping-list">
+    <div class="shopping-list-header">
+      <div id="logo">
+        <img src="meal.png" alt="plat" />
+      </div>
+      <h2>Mes Listes de course</h2>
+    </div>
+
+    @for (list of lists; track list.id) {
+    <app-item-card [item]="list" (click)="onSelectedList(list.id)" />
+    }
+
+    <button type="button" (click)="onAddList()">+</button>
+  </div>
+
+  @if(selectedList) {
+  <app-list />
+  } @else {
+  <app-no-list />
+  }
+</div>

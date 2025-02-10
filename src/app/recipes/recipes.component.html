@@ -8,7 +8,7 @@
     </div>
 
     @for (recipe of recipes; track recipe.id) {
-    <app-recipe-card [recipe]="recipe" (click)="onSelectRecipe(recipe.id)" />
+    <app-item-card [item]="recipe" (click)="onSelectRecipe(recipe.id)" />
     }
 
     <button type="button" (click)="onAddRecipe()">+</button>
@@ -26,6 +26,4 @@
   } @else {
   <app-no-recipe />
   }
-
-  <router-outlet />
 </div>

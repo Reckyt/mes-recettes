@@ -1,25 +1,23 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
-import { RecipeCardComponent } from '../shared/recipe-card/recipe-card.component';
 import { Recipe } from '../model/recipe';
 import { RecipesService } from './recipes.service';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { UpdateRecipeComponent } from './update-recipe/update-recipe.component';
 import { NoRecipeComponent } from './no-recipe/no-recipe.component';
+import { ItemCardComponent } from '../shared/item-card/item-card.component';
 
 @Component({
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
   styleUrl: './recipes.component.css',
   imports: [
-    RecipeCardComponent,
     RecipeComponent,
     NewRecipeComponent,
     UpdateRecipeComponent,
     NoRecipeComponent,
-    RouterOutlet,
+    ItemCardComponent,
   ],
 })
 export class RecipesComponent {
