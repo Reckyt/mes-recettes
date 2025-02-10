@@ -4,9 +4,10 @@ main {
 }
 
 app-sidebar {
-  width: 8%;
+  width: 10%;
+  background-color: #303742;
 }
 
 .main-container {
-  width: 92%;
+  width: 90%;
 }

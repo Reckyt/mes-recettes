@@ -1,6 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+  --raleway-weight: 400; /* Poids par défaut */
+  --raleway-style: normal;
+}
+
+.raleway {
+  font-family: "Raleway", serif;
+  font-optical-sizing: auto;
+  font-weight: var(--raleway-weight);
+  font-style: var(--raleway-style);
+}
+
 * {
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
 }
