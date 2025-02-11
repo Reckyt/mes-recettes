@@ -1,17 +1,15 @@
-<div
-  class="container"
-  [routerLink]="['/recettes', item.id]"
-  routerLinkActive="selected"
->
+<div class="container" [class.selected]="isSelected()" (click)="onSelect()">
   <div>
     <h4>{{ item.name }}</h4>
     @if(!isList(item)) {
 
-    <p>{{ item.cooking_time + item.preparation_time }} mins</p>
+    <p class="time">{{ item.cooking_time + item.preparation_time }} mins</p>
     }
   </div>
-  @if(isList(item)) { } @else {
-
-  <img src="" alt="a picture of the dish" />
+  @if(isList(item)) {
+  <p>{{ item.itemNumber }}</p>
+  } @else {
+  <!-- TODO rajouter le nom du plat en alt de l'image -->
+  <img src="" alt="picture" />
   }
 </div>

@@ -1,34 +1,51 @@
-<div class="container-title">
+<div class="title">
   <h1>{{ recipe.name }}</h1>
   <div class="icons">
     <button type="button" (click)="onUpdateRecipe()">
-      <img src="pencil.png" alt="modifier" />
+      <img src="pencil.png" alt="crayon pour modifier" />
     </button>
     <button type="button" (click)="onDeleteRecipe()">
-      <img src="cross.png" alt="supprimer" />
+      <img src="cross.png" alt="croix blanche sur fond rouge pour supprimer" />
     </button>
   </div>
 </div>
-<div>
-  <img src="" alt="" />
-  <div>
-    <p>Préparation {{ recipe.preparation_time }} mins</p>
-    <p>Cuisson {{ recipe.cooking_time }} mins</p>
+<div class="container-infos">
+  <img src="https://placehold.co/600x400" alt="{{ recipe.name }}" />
+
+  <tbody class="infos">
+    <tr>
+      <td class="recipe-field-name">Préparation</td>
+      <td class="recipe-field-time">{{ recipe.preparation_time }} mins</td>
+    </tr>
+    <tr>
+      <td class="recipe-field-name">Cuisson</td>
+      <td class="recipe-field-time">{{ recipe.cooking_time }} mins</td>
+    </tr>
+    <tr>
+      <td class="recipe-field-name">Personnes</td>
+      <td class="recipe-field-time">2</td>
+    </tr>
+  </tbody>
+</div>
+@if(recipe.description) {
+<div class="description">
+  <h4>Description</h4>
+  <p>{{ recipe.description }}</p>
+</div>
+}
+<div class="container-procedure">
+  <div class="procedure">
+    <h4>Ingrédients</h4>
+    <p>{{ recipe.ingredients }}</p>
+    <p class="add-procedure" (click)="onUpdateRecipe()">
+      Ajouter des ingrédients
+    </p>
   </div>
-</div>
-<h5>Description</h5>
-<p>{{ recipe.description }}</p>
-<div>
-  <h5>Ingrédients</h5>
-  <p>{{ recipe.ingredients }}</p>
-  <button type="button" (click)="onUpdateRecipe()">
-    Ajouter des ingrédients
-  </button>
-</div>
-<div>
-  <h5>Instructions</h5>
-  <p>{{ recipe.instructions }}</p>
-  <button type="button" (click)="onUpdateRecipe()">
-    Ajouter des instructions
-  </button>
+  <div class="procedure">
+    <h4>Instructions</h4>
+    <p>{{ recipe.instructions }}</p>
+    <p class="add-procedure" (click)="onUpdateRecipe()">
+      Ajouter des instructions
+    </p>
+  </div>
 </div>

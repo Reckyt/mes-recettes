@@ -1,4 +1,4 @@
-<div class="main-container">
+<div class="recipes-container">
   <div class="recipes-list">
     <div class="recipes-header">
       <div id="logo">
@@ -6,12 +6,16 @@
       </div>
       <h2>Mes Recettes</h2>
     </div>
+    <div class="search-input">
+      <input type="text" />
+    </div>
+    <div class="card-container">
+      @for (recipe of recipes; track recipe.id) {
+      <app-item-card [item]="recipe" (click)="onSelectRecipe(recipe.id)" />
+      }
+    </div>
 
-    @for (recipe of recipes; track recipe.id) {
-    <app-item-card [item]="recipe" (click)="onSelectRecipe(recipe.id)" />
-    }
-
-    <button type="button" (click)="onAddRecipe()">+</button>
+    <button class="add-button" type="button" (click)="onAddRecipe()">+</button>
   </div>
 
   @if(selectedRecipe && !isAddingRecipe && !isUpdatingRecipe) {

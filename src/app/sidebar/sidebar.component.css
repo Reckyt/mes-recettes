@@ -19,3 +19,7 @@ a {
 a:hover {
   background-color: #a4a4a4;
 }
+
+.selected {
+  background-color: var(--blue-app);
+}

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
 import { recipes } from '../../asset/recipesList';
 import { NewRecipeData, Recipe } from '../model/recipe';
@@ -14,6 +14,8 @@ export class RecipesService {
       this.recipes = JSON.parse(recipes);
     }
   }
+
+  selectedRecipeId = signal<string | undefined>(undefined);
 
   getRecipes() {
     return this.recipes;

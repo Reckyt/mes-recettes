@@ -3,6 +3,8 @@
 :root {
   --raleway-weight: 400; /* Poids par défaut */
   --raleway-style: normal;
+  --grey-border: rgba(158, 158, 158, 0.364);
+  --blue-app: #4784ec;
 }
 
 .raleway {
