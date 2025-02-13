@@ -22,7 +22,6 @@
     <tbody class="infos">
       <tr>
         <td class="recipe-field-name">Préparation</td>
-        <!-- <td class="recipe-field-time"> -->
         <input
           type="number"
           id="preparation_time"
@@ -30,11 +29,9 @@
           [(ngModel)]="enteredPreparationTime"
         />
         mins
-        <!-- </td> -->
       </tr>
       <tr>
         <td class="recipe-field-name">Cuisson</td>
-        <!-- <td class="recipe-field-time"> -->
         <input
           type="number"
           id="cooking_time"
@@ -42,51 +39,42 @@
           [(ngModel)]="enteredCookingTime"
         />
         mins
-        <!-- </td> -->
       </tr>
       <tr>
         <td class="recipe-field-name">Personnes</td>
-        <!-- <td class="recipe-field-time"> -->
         <input
           type="number"
           id="portions"
           name="portions"
           [(ngModel)]="enteredPortions"
         />
-        <!-- </td> -->
       </tr>
     </tbody>
   </div>
   <div class="description">
     <h4>Description</h4>
-    <!-- <p> -->
     <textarea
       name="description"
       id="description"
       [(ngModel)]="enteredDescription"
     ></textarea>
-    <!-- </p> -->
   </div>
   <div class="container-procedure">
     <div class="procedure">
       <h4>Ingrédients</h4>
-      <!-- <p> -->
       <textarea
         name="enteredIngredients"
         id="ingredients"
         [(ngModel)]="enteredIngredients"
       ></textarea>
-      <!-- </p> -->
     </div>
     <div class="procedure">
       <h4>Instructions</h4>
-      <!-- <p> -->
       <textarea
         name="enteredInstructions"
         id="instructions"
         [(ngModel)]="enteredInstructions"
       ></textarea>
-      <!-- </p> -->
     </div>
   </div>
 </form>

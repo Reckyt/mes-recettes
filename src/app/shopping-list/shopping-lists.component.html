@@ -1,5 +1,5 @@
 @if(isAddingList) {
-<app-modal />
+<app-new-list-modal (isAdding)="onAddList()" />
 }
 
 <div class="main-container">
@@ -19,7 +19,7 @@
   </div>
 
   @if(selectedList) {
-  <app-list />
+  <app-list [list]="selectedList" />
   } @else {
   <app-no-list />
   }

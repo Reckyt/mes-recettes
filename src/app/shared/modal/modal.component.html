@@ -1,12 +1,3 @@
 <dialog #dialog>
-  <form (ngSubmit)="onSubmit()">
-    <div class="error">
-      <h2>Name</h2>
-      <input type="text" id="name" name="name" [(ngModel)]="enteredName" />
-
-      <div class="confirmation-actions">
-        <button class="button" type="submit">Okay</button>
-      </div>
-    </div>
-  </form>
+  <ng-content />
 </dialog>

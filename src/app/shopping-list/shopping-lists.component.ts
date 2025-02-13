@@ -2,13 +2,18 @@ import { Component, inject } from '@angular/core';
 
 import { ItemCardComponent } from '../shared/item-card/item-card.component';
 import { ShoppingListsService } from './shopping-lists.service';
-import { ModalComponent } from '../shared/modal/modal.component';
 import { NoListComponent } from './no-list/no-list.component';
 import { ListComponent } from './list/list.component';
+import { NewListModalComponent } from '../shared/modal/new-list-modal/new-list-modal.component';
 
 @Component({
   selector: 'app-shopping-list',
-  imports: [ItemCardComponent, ModalComponent, NoListComponent, ListComponent],
+  imports: [
+    ItemCardComponent,
+    NewListModalComponent,
+    NoListComponent,
+    ListComponent,
+  ],
   templateUrl: './shopping-lists.component.html',
   styleUrl: './shopping-lists.component.css',
 })

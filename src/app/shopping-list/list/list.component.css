@@ -1,0 +1,29 @@
+.new-element {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border: 1px solid var(--grey-border);
+  border-radius: 5px;
+}
+
+#add {
+  width: 2rem;
+  height: 2rem;
+  /* background-color: #eee8f2; */
+  padding: 0.5rem;
+  border-radius: 50%;
+  /* box-shadow: 0 0 8px rgba(0, 0, 0, 0.35); */
+}
+
+#add img {
+  width: 100%;
+  /* filter: drop-shadow(0 0 4px rgba(29, 29, 29, 0.35)); */
+}
+
+.new-element input {
+  border: none;
+}
+
+.new-element input:focus {
+  outline: none !important;
+}

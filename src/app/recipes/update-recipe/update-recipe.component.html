@@ -1,46 +1,6 @@
-<!-- <form [formGroup]="recipeForm" (ngSubmit)="onSubmit(recipe!.id)">
-  <input type="text" id="name" formControlName="name" />
-  <button type="button" (click)="onUpdateRecipe()">Annuler</button>
-  <button type="submit">Enregistrer</button>
-  <div>
-    <img src="" alt="" />
-    <div>
-      <p>
-        Préparation
-        <input
-          type="number"
-          id="preparationTime"
-          formControlName="preparationTime"
-        />
-        mins
-      </p>
-      <p>
-        Cuisson
-        <input
-          type="number"
-          id="cookingTime"
-          formControlName="cookingTime"
-        />mins
-      </p>
-    </div>
-  </div>
-  <h5>Description</h5>
-  <textarea id="description" formControlName="description"></textarea>
-  <div>
-    <h5>Ingrédients</h5>
-    <textarea id="ingredients" formControlName="ingredients"></textarea>
-  </div>
-  <div>
-    <h5>Instructions</h5>
-    <textarea id="instructions" formControlName="instructions"></textarea>
-  </div>
-</form> -->
-
 <form [formGroup]="recipeForm" (ngSubmit)="onSubmit(recipe!.id)">
   <div class="title">
-    <!-- <h1> -->
     <input type="text" id="name" formControlName="name" />
-    <!-- </h1> -->
     <div class="icons">
       <button type="submit">
         <img src="check.png" alt="coche blanche sur fond vert" />
@@ -56,60 +16,48 @@
     <tbody class="infos">
       <tr>
         <td class="recipe-field-name">Préparation</td>
-        <!-- <td class="recipe-field-time"> -->
         <input
           type="number"
           id="preparation_time"
           formControlName="preparationTime"
         />
         mins
-        <!-- </td> -->
       </tr>
       <tr>
         <td class="recipe-field-name">Cuisson</td>
-        <!-- <td class="recipe-field-time"> -->
         <input type="number" id="cooking_time" formControlName="cookingTime" />
         mins
-        <!-- </td> -->
       </tr>
       <tr>
         <td class="recipe-field-name">Personnes</td>
-        <!-- <td class="recipe-field-time"> -->
         <input type="number" id="portions" formControlName="portions" />
-        <!-- </td> -->
       </tr>
     </tbody>
   </div>
   <div class="description">
     <h4>Description</h4>
-    <!-- <p> -->
     <textarea
       name="description"
       id="description"
       formControlName="description"
     ></textarea>
-    <!-- </p> -->
   </div>
   <div class="container-procedure">
     <div class="procedure">
       <h4>Ingrédients</h4>
-      <!-- <p> -->
       <textarea
         name="enteredIngredients"
         id="ingredients"
         formControlName="ingredients"
       ></textarea>
-      <!-- </p> -->
     </div>
     <div class="procedure">
       <h4>Instructions</h4>
-      <!-- <p> -->
       <textarea
         name="enteredInstructions"
         id="instructions"
         formControlName="instructions"
       ></textarea>
-      <!-- </p> -->
     </div>
   </div>
 </form>

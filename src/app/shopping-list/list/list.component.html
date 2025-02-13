@@ -1,1 +1,28 @@
-<p>Affichage de la liste</p>
+@if(isUpdatingName()) {
+<app-update-list-name-modal [list]="list" />
+}
+
+<h1>{{ list.name }}</h1>
+<div class="action-button">
+  <button type="button" (click)="onUpdateName()">Modifier</button>
+  <button type="button" (click)="onRemoveList(list.id)">supprimer</button>
+</div>
+<div class="new-element">
+  <div id="add">
+    <img src="add.png" alt="plus" (click)="onAddItem(list.id, enteredItem)" />
+  </div>
+  <input
+    type="text"
+    name="item"
+    placeholder="Nouvelle élément"
+    [(ngModel)]="enteredItem"
+    (keyup.enter)="onAddItem(list.id, enteredItem)"
+  />
+</div>
+@for(item of list.item; track list.id) {
+<input type="checkbox" [name]="item" />
+<label for="item">{{ item }}</label>
+<button type="button" (click)="onRemoveListItem(list.id, item)">
+  supprimer
+</button>
+}

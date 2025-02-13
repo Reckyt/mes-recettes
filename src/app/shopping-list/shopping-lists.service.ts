@@ -7,7 +7,6 @@ import { List, NewListData } from '../model/list';
 })
 export class ShoppingListsService {
   private lists: List[] = [];
-  // private lists = signal<List[]>([]);
 
   constructor() {
     const lists = localStorage.getItem('lists');
@@ -25,14 +24,55 @@ export class ShoppingListsService {
     this.lists.push({
       id: new Date().getTime().toString(),
       name: listData.name,
-      itemNumber: 10,
+      itemNumber: 0,
+      item: [],
     });
     this.saveList();
   }
 
-  removeList(id: string) {}
+  removeList(id: string) {
+    this.lists = this.lists.filter((list) => list.id !== id);
+    this.saveList();
+  }
 
-  updateList() {}
+  updateListName(id: string, newName: string) {
+    this.lists = this.lists.map((list) => {
+      if (list.id === id) {
+        return {
+          ...list,
+          name: newName,
+        };
+      }
+      return list;
+    });
+    this.saveList();
+  }
+
+  addListItem(listId: string, item: string) {
+    this.lists = this.lists.map((list) => {
+      if (list.id === listId) {
+        return {
+          ...list,
+          item: list.item.concat(item),
+        };
+      }
+      return list;
+    });
+    this.saveList();
+  }
+
+  removeListItem(listId: string, item: string) {
+    this.lists = this.lists.map((list) => {
+      if (list.id === listId) {
+        return {
+          ...list,
+          item: list.item.filter((itemList) => itemList !== item),
+        };
+      }
+      return list;
+    });
+    this.saveList();
+  }
 
   private saveList() {
     localStorage.setItem('lists', JSON.stringify(this.lists));

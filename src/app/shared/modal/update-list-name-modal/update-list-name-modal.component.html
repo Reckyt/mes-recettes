@@ -1,0 +1,15 @@
+<app-modal>
+  <form [formGroup]="listForm" (ngSubmit)="onSubmit()">
+    <div class="error">
+      <h2>Modifier</h2>
+      <input type="text" id="name" formControlName="name" />
+
+      <div class="confirmation-actions">
+        <button class="button" type="submit">Okay</button>
+        <button type="button" class="button" (click)="onCloseModal()">
+          Annuler
+        </button>
+      </div>
+    </div>
+  </form>
+</app-modal>
