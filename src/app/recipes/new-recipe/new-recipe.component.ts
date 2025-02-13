@@ -17,6 +17,7 @@ export class NewRecipeComponent {
   enteredCookingTime = 0;
   enteredIngredients = '';
   enteredInstructions = '';
+  enteredPortions = 0;
 
   private recipesService = inject(RecipesService);
 
@@ -29,6 +30,7 @@ export class NewRecipeComponent {
       name: this.enteredName,
       preparation_time: this.enteredPreparationTime,
       cooking_time: this.enteredCookingTime,
+      portions: this.enteredPortions,
       description: this.enteredDescription,
       ingredients: this.enteredIngredients,
       instructions: this.enteredInstructions,

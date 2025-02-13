@@ -30,4 +30,5 @@ export interface NewRecipeData {
   preparation_time: number;
   cooking_time: number;
   instructions: string;
+  portions: number;
 }

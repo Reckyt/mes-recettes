@@ -23,7 +23,7 @@
     </tr>
     <tr>
       <td class="recipe-field-name">Personnes</td>
-      <td class="recipe-field-time">2</td>
+      <td class="recipe-field-time">{{ recipe.portions }}</td>
     </tr>
   </tbody>
 </div>
@@ -34,16 +34,20 @@
 </div>
 }
 <div class="container-procedure">
-  <div class="procedure">
+  <div class="procedure" id="ingredient">
     <h4>Ingrédients</h4>
-    <p>{{ recipe.ingredients }}</p>
+    <ul>
+      @for(line of recipe.ingredients.split('\n'); track recipe.id) {
+      <li>{{ line }}</li>
+      }
+    </ul>
     <p class="add-procedure" (click)="onUpdateRecipe()">
       Ajouter des ingrédients
     </p>
   </div>
   <div class="procedure">
     <h4>Instructions</h4>
-    <p>{{ recipe.instructions }}</p>
+    <p class="instructions">{{ recipe.instructions }}</p>
     <p class="add-procedure" (click)="onUpdateRecipe()">
       Ajouter des instructions
     </p>

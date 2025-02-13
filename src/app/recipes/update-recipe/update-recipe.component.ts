@@ -30,6 +30,7 @@ export class UpdateRecipeComponent {
       description: this.recipe?.description,
       preparationTime: this.recipe?.preparation_time,
       cookingTime: this.recipe?.cooking_time,
+      portions: this.recipe?.portions,
       ingredients: this.recipe?.ingredients,
       instructions: this.recipe?.instructions,
     });
@@ -45,6 +46,7 @@ export class UpdateRecipeComponent {
       description: this.recipeForm.value.description,
       preparation_time: this.recipeForm.value.preparationTime,
       cooking_time: this.recipeForm.value.cookingTime,
+      portions: this.recipeForm.value.portions,
       ingredients: this.recipeForm.value.ingredients,
       instructions: this.recipeForm.value.instructions,
     });

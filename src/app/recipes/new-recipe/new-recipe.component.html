@@ -1,12 +1,28 @@
 <form (ngSubmit)="onSubmit()">
-  <input type="text" id="name" name="name" [(ngModel)]="enteredName" />
-  <button type="button" (click)="onAddRecipe()">Annuler</button>
-  <button type="submit">Enregistrer</button>
-  <div>
-    <img src="" alt="" />
-    <div>
-      <p>
-        Préparation
+  <div class="title">
+    <input
+      type="text"
+      id="name"
+      name="name"
+      placeholder="Nom du plat"
+      [(ngModel)]="enteredName"
+    />
+    <div class="icons">
+      <button type="submit">
+        <img src="check.png" alt="coche blanche sur fon vert" />
+      </button>
+      <button type="button" (click)="onAddRecipe()">
+        <img src="cross.png" alt="croix blanche sur fond rouge" />
+      </button>
+    </div>
+  </div>
+  <div class="container-infos">
+    <img src="https://placehold.co/600x400" alt="" />
+
+    <tbody class="infos">
+      <tr>
+        <td class="recipe-field-name">Préparation</td>
+        <!-- <td class="recipe-field-time"> -->
         <input
           type="number"
           id="preparation_time"
@@ -14,38 +30,63 @@
           [(ngModel)]="enteredPreparationTime"
         />
         mins
-      </p>
-      <p>
-        Cuisson
+        <!-- </td> -->
+      </tr>
+      <tr>
+        <td class="recipe-field-name">Cuisson</td>
+        <!-- <td class="recipe-field-time"> -->
         <input
           type="number"
           id="cooking_time"
           name="cooking_time"
           [(ngModel)]="enteredCookingTime"
-        />mins
-      </p>
+        />
+        mins
+        <!-- </td> -->
+      </tr>
+      <tr>
+        <td class="recipe-field-name">Personnes</td>
+        <!-- <td class="recipe-field-time"> -->
+        <input
+          type="number"
+          id="portions"
+          name="portions"
+          [(ngModel)]="enteredPortions"
+        />
+        <!-- </td> -->
+      </tr>
+    </tbody>
+  </div>
+  <div class="description">
+    <h4>Description</h4>
+    <!-- <p> -->
+    <textarea
+      name="description"
+      id="description"
+      [(ngModel)]="enteredDescription"
+    ></textarea>
+    <!-- </p> -->
+  </div>
+  <div class="container-procedure">
+    <div class="procedure">
+      <h4>Ingrédients</h4>
+      <!-- <p> -->
+      <textarea
+        name="enteredIngredients"
+        id="ingredients"
+        [(ngModel)]="enteredIngredients"
+      ></textarea>
+      <!-- </p> -->
     </div>
-  </div>
-  <h5>Description</h5>
-  <textarea
-    name="description"
-    id="description"
-    [(ngModel)]="enteredDescription"
-  ></textarea>
-  <div>
-    <h5>Ingrédients</h5>
-    <textarea
-      name="enteredIngredients"
-      id="enteredIngredients"
-      [(ngModel)]="enteredIngredients"
-    ></textarea>
-  </div>
-  <div>
-    <h5>Instructions</h5>
-    <textarea
-      name="enteredInstructions"
-      id="enteredInstructions"
-      [(ngModel)]="enteredInstructions"
-    ></textarea>
+    <div class="procedure">
+      <h4>Instructions</h4>
+      <!-- <p> -->
+      <textarea
+        name="enteredInstructions"
+        id="instructions"
+        [(ngModel)]="enteredInstructions"
+      ></textarea>
+      <!-- </p> -->
+    </div>
   </div>
 </form>
