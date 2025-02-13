@@ -1,0 +1,30 @@
+<app-modal>
+  <form (ngSubmit)="onSubmit()">
+    <div class="container-ingredients">
+      @for(ingredient of ingredientsArray; track ingredientsArray) {
+      <input
+        type="checkbox"
+        [id]="ingredient"
+        [value]="ingredient"
+        (change)="toggleSelection(ingredient, $event)"
+      />
+      <label [for]="ingredient">{{ ingredient }}</label>
+      }
+    </div>
+
+    <div class="container-lists">
+      @for(list of lists; track list.id) {
+      <input
+        type="radio"
+        [id]="list"
+        [value]="list"
+        [name]="list"
+        (change)="selectList(list.id)"
+      />
+      <label [for]="list">{{ list.name }}</label>
+      }
+    </div>
+
+    <button type="submit">Envoyer</button>
+  </form>
+</app-modal>

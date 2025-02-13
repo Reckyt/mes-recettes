@@ -48,17 +48,25 @@ export class ShoppingListsService {
     this.saveList();
   }
 
-  addListItem(listId: string, item: string) {
+  addItemsToList(listId: string, items: string | string[]) {
     this.lists = this.lists.map((list) => {
       if (list.id === listId) {
         return {
           ...list,
-          item: list.item.concat(item),
+          item: [...list.item, ...(Array.isArray(items) ? items : [items])],
         };
       }
       return list;
     });
     this.saveList();
+  }
+
+  addListItem(listId: string, item: string) {
+    this.addItemsToList(listId, item);
+  }
+
+  addListItemsFromRecipe(listId: string, items: string[]) {
+    this.addItemsToList(listId, items);
   }
 
   removeListItem(listId: string, item: string) {

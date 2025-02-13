@@ -1,6 +1,9 @@
 <div class="title">
   <h1>{{ recipe.name }}</h1>
   <div class="icons">
+    <button>
+      <img src="caddie.png" alt="caddie" (click)="onAddIngredientsToList()" />
+    </button>
     <button type="button" (click)="onUpdateRecipe()">
       <img src="pencil.png" alt="crayon pour modifier" />
     </button>
@@ -53,3 +56,11 @@
     </p>
   </div>
 </div>
+
+@if(isAddingIngredientsToList) {
+<app-ingredients-to-list-modal
+  [ingredients]="recipe.ingredients"
+  (closeMenu)="onAddIngredientsToList()"
+/>
+
+}
