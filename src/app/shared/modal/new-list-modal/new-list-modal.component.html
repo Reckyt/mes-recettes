@@ -1,15 +1,16 @@
 <app-modal>
   <form (ngSubmit)="onSubmit()">
-    <div class="error">
-      <h2>Créer</h2>
+    <div class="modal">
+      <div class="modal-title">
+        <div id="logo" (click)="onCloseModal()">
+          <img src="cancel.png" alt="croix" />
+        </div>
+        <h2>{{ title() }}</h2>
+      </div>
+
       <input type="text" id="name" name="name" [(ngModel)]="enteredName" />
 
-      <div class="confirmation-actions">
-        <button class="button" type="submit">Okay</button>
-        <button type="button" class="button" (click)="onCloseModal()">
-          Annuler
-        </button>
-      </div>
+      <app-button title="Enregistrer" type="submit" />
     </div>
   </form>
 </app-modal>

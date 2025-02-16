@@ -1,0 +1,8 @@
+<button
+  [type]="type()"
+  (click)="onClick()"
+  [style.width.rem]="getButtonWidth()"
+  [ngStyle]="{ margin: getButtonMargin() }"
+>
+  {{ title() }}
+</button>

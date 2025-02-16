@@ -1,12 +1,21 @@
 .main-container {
   display: flex;
   flex-direction: row;
-  height: 94vh;
+  height: 90vh;
 }
 
 .shopping-list {
-  width: 50%;
-  border: 1px solid red;
+  position: relative;
+  width: 35%;
+  border-right: 1px solid var(--grey-border);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2rem;
+}
+
+.card-container {
+  width: 100%;
 }
 
 .shopping-list-header {
@@ -19,10 +28,10 @@
 }
 
 #logo {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 1.8rem;
+  height: 1.8rem;
   background-color: #eee8f2;
-  padding: 0.5rem;
+  padding: 0.2rem;
   border-radius: 50%;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.35);
 }
@@ -32,8 +41,26 @@
   filter: drop-shadow(0 0 4px rgba(29, 29, 29, 0.35));
 }
 
+.add-button {
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--blue-app);
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 100;
+  border: none;
+  border-radius: 50%;
+  line-height: 3rem;
+}
+
 app-list,
 app-no-list {
-  width: 50%;
-  margin: 0 2rem;
+  width: 65%;
+  margin: 1rem 2rem;
 }

@@ -1,12 +1,16 @@
 dialog {
   min-width: 30rem;
+  max-width: 50rem;
   padding: 0;
   z-index: 2;
-  background: #d5c7bc;
+  background: #f9f9f9;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   animation: slide-down-fade-in 0.3s ease-out forwards;
+  border: 2px solid var(--grey-border);
+  margin: auto;
+  min-height: 10rem;
 }
 
 dialog::backdrop {

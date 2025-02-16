@@ -5,6 +5,10 @@ import { MealsComponent } from './meals/meals.component';
 import { ShoppingListsComponent } from './shopping-list/shopping-lists.component';
 
 export const routes: Routes = [
+  // {
+  //   path: '',
+  //   component: RecipesComponent,
+  // },
   {
     path: 'recettes',
     component: RecipesComponent,

@@ -1,5 +1,5 @@
 @if(isAddingList) {
-<app-new-list-modal (isAdding)="onAddList()" />
+<app-new-list-modal (isAdding)="onAddList()" title="Créer une liste" />
 }
 
 <div class="main-container">
@@ -10,12 +10,13 @@
       </div>
       <h2>Mes Listes de course</h2>
     </div>
+    <div class="card-container">
+      @for (list of lists; track list.id) {
+      <app-item-card [item]="list" (click)="onSelectedList(list.id)" />
+      }
+    </div>
 
-    @for (list of lists; track list.id) {
-    <app-item-card [item]="list" (click)="onSelectedList(list.id)" />
-    }
-
-    <button type="button" (click)="onAddList()">+</button>
+    <button class="add-button" type="button" (click)="onAddList()">+</button>
   </div>
 
   @if(selectedList) {

@@ -1,30 +1,68 @@
 <app-modal>
   <form (ngSubmit)="onSubmit()">
-    <div class="container-ingredients">
-      @for(ingredient of ingredientsArray; track ingredientsArray) {
-      <input
-        type="checkbox"
-        [id]="ingredient"
-        [value]="ingredient"
-        (change)="toggleSelection(ingredient, $event)"
-      />
-      <label [for]="ingredient">{{ ingredient }}</label>
-      }
-    </div>
+    <div class="modal">
+      <div class="modal-title">
+        <div id="logo" (click)="onCloseModal()">
+          <img src="cancel.png" alt="croix" />
+        </div>
+        <h2>{{ title() }}</h2>
+      </div>
 
-    <div class="container-lists">
-      @for(list of lists; track list.id) {
-      <input
-        type="radio"
-        [id]="list"
-        [value]="list"
-        [name]="list"
-        (change)="selectList(list.id)"
-      />
-      <label [for]="list">{{ list.name }}</label>
-      }
-    </div>
+      <div class="main-container">
+        <div class="container-ingredients">
+          <div class="button-action">
+            <h4>Quels ingredients ?</h4>
+            <app-button
+              type="button"
+              [title]="allChecked ? 'Décocher tout' : 'Cocher tout'"
+              width="7"
+              [noMargin]="true"
+              (action)="toggleAllCheck()"
+            />
+          </div>
+          @for(item of ingredientsSelected; track item) {
+          <div class="ingredients">
+            <input
+              type="checkbox"
+              [name]="item.ingredient"
+              [(ngModel)]="item.checked"
+              (change)="toggleSelection(getIndex(item))"
+            />
+            <label>{{ item.ingredient }}</label>
+          </div>
+          }
+        </div>
 
-    <button type="submit">Envoyer</button>
+        <div class="container-lists">
+          <div class="button-action">
+            <h4>Quelle liste ?</h4>
+            <app-button
+              type="button"
+              [title]="isAddingNewList ? 'Enregistrer' : 'Nouvelle liste'"
+              width="7"
+              [noMargin]="true"
+              (action)="isAddingNewList ? saveNewList() : newList()"
+            />
+            @if(isAddingNewList){
+            <input type="text" name="newListName" [(ngModel)]="newListName" />
+            }
+          </div>
+          @for(list of lists; track list.id) {
+          <div class="lists">
+            <input
+              type="radio"
+              [id]="list"
+              [value]="list"
+              [name]="list"
+              (change)="selectList(list.id)"
+            />
+            <label [for]="list">{{ list.name }}</label>
+          </div>
+          }
+        </div>
+      </div>
+
+      <app-button title="Enregistrer" type="submit" />
+    </div>
   </form>
 </app-modal>
