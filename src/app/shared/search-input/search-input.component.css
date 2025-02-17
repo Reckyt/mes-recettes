@@ -1,0 +1,44 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  height: 2rem;
+  border: 1px solid var(--grey-border);
+  border-radius: 10px;
+}
+
+#search,
+#close {
+  width: 1.52rem;
+  height: 1.52rem;
+  padding: 0.5rem;
+}
+
+#close {
+  width: 1rem;
+  height: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+#close:hover {
+  filter: drop-shadow(0 0 4px rgba(29, 29, 29, 0.8));
+}
+
+#search img,
+#close img {
+  width: 100%;
+}
+
+input {
+  border: none;
+}
+
+input:focus {
+  outline: none !important;
+}
+
+.last {
+  margin-left: auto;
+}

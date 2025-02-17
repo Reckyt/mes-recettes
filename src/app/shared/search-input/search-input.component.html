@@ -1,0 +1,12 @@
+<div id="search">
+  <img src="search.png" alt="loupe" />
+</div>
+<input
+  type="text"
+  [placeholder]="placeholder()"
+  [(ngModel)]="searchInput"
+  (ngModelChange)="onInputChange()"
+/>
+<div id="close" class="last" (click)="clearField()">
+  <img src="close.png" alt="loupe" />
+</div>

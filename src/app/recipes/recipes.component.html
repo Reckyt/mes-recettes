@@ -7,10 +7,13 @@
       <h2>Mes Recettes</h2>
     </div>
     <div class="search-input">
-      <input type="text" />
+      <app-search-input
+        placeholder="Rechercher une recette..."
+        (searchInputChange)="onSearchInputChange($event)"
+      />
     </div>
     <div class="card-container">
-      @for (recipe of recipes; track recipe.id) {
+      @for (recipe of filteredRecipes; track recipe.id) {
       <app-item-card [item]="recipe" (click)="onSelectRecipe(recipe.id)" />
       }
     </div>

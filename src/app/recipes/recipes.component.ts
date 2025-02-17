@@ -7,6 +7,7 @@ import { RecipeComponent } from './recipe/recipe.component';
 import { UpdateRecipeComponent } from './update-recipe/update-recipe.component';
 import { NoRecipeComponent } from './no-recipe/no-recipe.component';
 import { ItemCardComponent } from '../shared/item-card/item-card.component';
+import { SearchInputComponent } from '../shared/search-input/search-input.component';
 
 @Component({
   selector: 'app-recipes',
@@ -18,12 +19,14 @@ import { ItemCardComponent } from '../shared/item-card/item-card.component';
     UpdateRecipeComponent,
     NoRecipeComponent,
     ItemCardComponent,
+    SearchInputComponent,
   ],
 })
 export class RecipesComponent {
   selectedRecipeId?: string;
   isAddingRecipe: boolean = false;
   isUpdatingRecipe: boolean = false;
+  searchInput: string = '';
 
   constructor(private recipesService: RecipesService) {}
 
@@ -47,5 +50,15 @@ export class RecipesComponent {
 
   onUpdateRecipe() {
     this.isUpdatingRecipe = !this.isUpdatingRecipe;
+  }
+
+  get filteredRecipes() {
+    return this.recipes.filter((recipe) =>
+      recipe.name.toLowerCase().includes(this.searchInput.toLowerCase())
+    );
+  }
+
+  onSearchInputChange(query: string) {
+    this.searchInput = query;
   }
 }

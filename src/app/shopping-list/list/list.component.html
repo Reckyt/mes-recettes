@@ -8,6 +8,10 @@
 }
 <div class="title">
   <h1>{{ list.name }}</h1>
+  <app-search-input
+    placeholder="Rechercher un élément..."
+    (searchInputChange)="onSearchInputChange($event)"
+  />
   <div class="icons">
     <button type="button" (click)="onOpenModal('update')">
       <img src="pencil.png" alt="crayon pour modifier" />
@@ -29,7 +33,7 @@
     (keyup.enter)="onAddItem(list.id, enteredItem)"
   />
 </div>
-@for(item of list.item; track item) {
+@for(item of filteredItem; track item) {
 <app-input-checkbox
   [item]="item"
   (delete)="onRemoveListItem(list.id, item)"
