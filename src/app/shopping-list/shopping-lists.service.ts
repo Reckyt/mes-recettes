@@ -20,6 +20,10 @@ export class ShoppingListsService {
     return this.lists;
   }
 
+  getList(listId: string) {
+    return this.lists.filter((list) => list.id === listId);
+  }
+
   addList(listData: NewListData) {
     this.lists.push({
       id: new Date().getTime().toString(),
@@ -76,6 +80,16 @@ export class ShoppingListsService {
           ...list,
           item: list.item.filter((itemList) => itemList !== item),
         };
+      }
+      return list;
+    });
+    this.saveList();
+  }
+
+  updateItemName(listId: string, newName: string, index: number) {
+    this.lists = this.lists.map((list) => {
+      if (list.id === listId && list.item[index]) {
+        list.item[index] = newName;
       }
       return list;
     });

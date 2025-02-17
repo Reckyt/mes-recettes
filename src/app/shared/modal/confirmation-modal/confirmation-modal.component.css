@@ -1,0 +1,38 @@
+.modal {
+  min-height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.modal-title {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 1rem;
+}
+
+#logo {
+  position: absolute;
+  top: -8px;
+  left: 5px;
+  width: 1.4rem;
+  height: 1.4rem;
+  background-color: #eee8f2;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#logo img {
+  width: 100%;
+  filter: drop-shadow(0 0 4px rgba(29, 29, 29, 0.35));
+}
+
+.modal-title h2 {
+  width: 80%;
+  text-align: center;
+}

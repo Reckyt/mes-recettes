@@ -1,0 +1,27 @@
+@if(isUpdatingNameItem) {
+<form [formGroup]="nameItem">
+  <input class="item" type="text" id="item" formControlName="item" />
+</form>
+} @else {
+<input class="item" type="checkbox" [name]="item()" />
+<label class="item" for="item">{{ item() }}</label>
+}
+<div class="item last">
+  <div
+    class="item"
+    id="logo"
+    (click)="isUpdatingNameItem ? updateName() : onUpdateNameItem()"
+  >
+    <img
+      [src]="isUpdatingNameItem ? 'check.png' : 'pencil-BW.png'"
+      alt="crayon"
+    />
+  </div>
+  <div
+    class="item"
+    id="logo"
+    (click)="isUpdatingNameItem ? onUpdateNameItem() : onDelete()"
+  >
+    <img [src]="isUpdatingNameItem ? 'cross.png' : 'cancel.png'" alt="croix" />
+  </div>
+</div>

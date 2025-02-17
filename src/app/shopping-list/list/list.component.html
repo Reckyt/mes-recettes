@@ -1,11 +1,21 @@
-@if(isUpdatingName()) {
+@if(isOpeningModal() && actionModal === 'update') {
 <app-update-list-name-modal [list]="list" title="Modifier le nom" />
+} @if(isOpeningModal() && actionModal === "delete") {
+<app-confirmation-modal
+  title="Confirmer la suppression ?"
+  (confirm)="onRemoveList(list.id)"
+/>
 }
-
-<h1>{{ list.name }}</h1>
-<div class="action-button">
-  <button type="button" (click)="onUpdateName()">Modifier</button>
-  <button type="button" (click)="onRemoveList(list.id)">supprimer</button>
+<div class="title">
+  <h1>{{ list.name }}</h1>
+  <div class="icons">
+    <button type="button" (click)="onOpenModal('update')">
+      <img src="pencil.png" alt="crayon pour modifier" />
+    </button>
+    <button type="button" (click)="onOpenModal('delete')">
+      <img src="cross.png" alt="croix blanche sur fond rouge pour supprimer" />
+    </button>
+  </div>
 </div>
 <div class="new-element">
   <div id="add">
@@ -19,10 +29,10 @@
     (keyup.enter)="onAddItem(list.id, enteredItem)"
   />
 </div>
-@for(item of list.item; track list.id) {
-<input type="checkbox" [name]="item" />
-<label for="item">{{ item }}</label>
-<button type="button" (click)="onRemoveListItem(list.id, item)">
-  supprimer
-</button>
+@for(item of list.item; track item) {
+<app-input-checkbox
+  [item]="item"
+  (delete)="onRemoveListItem(list.id, item)"
+  [listId]="list.id"
+/>
 }
