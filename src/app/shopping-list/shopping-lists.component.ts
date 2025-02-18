@@ -6,6 +6,7 @@ import { ShoppingListsService } from './shopping-lists.service';
 import { NoListComponent } from './no-list/no-list.component';
 import { ListComponent } from './list/list.component';
 import { NewListModalComponent } from '../shared/modal/new-list-modal/new-list-modal.component';
+import { SearchInputComponent } from '../shared/search-input/search-input.component';
 
 @Component({
   selector: 'app-shopping-list',
@@ -15,6 +16,7 @@ import { NewListModalComponent } from '../shared/modal/new-list-modal/new-list-m
     NoListComponent,
     ListComponent,
     MatTooltipModule,
+    SearchInputComponent,
   ],
   templateUrl: './shopping-lists.component.html',
   styleUrl: './shopping-lists.component.css',
@@ -22,6 +24,8 @@ import { NewListModalComponent } from '../shared/modal/new-list-modal/new-list-m
 export class ShoppingListsComponent {
   selectedListId?: string;
   isAddingList: boolean = false;
+  searchInput: string = '';
+
   private shoppingListsService = inject(ShoppingListsService);
 
   get lists() {
@@ -38,5 +42,15 @@ export class ShoppingListsComponent {
 
   onAddList() {
     this.isAddingList = !this.isAddingList;
+  }
+
+  get filteredlists() {
+    return this.lists.filter((list) =>
+      list.name.toLowerCase().includes(this.searchInput.toLowerCase())
+    );
+  }
+
+  onSearchInputChange(query: string) {
+    this.searchInput = query;
   }
 }

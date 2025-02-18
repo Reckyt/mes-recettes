@@ -7,6 +7,7 @@ import { RecipesService } from '../recipes.service';
 import { IngredientsToListModalComponent } from '../../shared/modal/ingredients-to-list-modal/ingredients-to-list-modal.component';
 import { ConfirmationModalComponent } from '../../shared/modal/confirmation-modal/confirmation-modal.component';
 import { ModalService } from '../../shared/modal.service';
+import { TagComponent } from '../../tags/tag/tag.component';
 
 @Component({
   selector: 'app-recipe',
@@ -17,6 +18,7 @@ import { ModalService } from '../../shared/modal.service';
     IngredientsToListModalComponent,
     MatTooltipModule,
     ConfirmationModalComponent,
+    TagComponent,
   ],
 })
 export class RecipeComponent {
@@ -24,7 +26,6 @@ export class RecipeComponent {
   @Output() isUpdatingRecipe = new EventEmitter();
 
   isAddingIngredientsToList: boolean = false;
-
   private recipesService = inject(RecipesService);
   private modalService = inject(ModalService);
 

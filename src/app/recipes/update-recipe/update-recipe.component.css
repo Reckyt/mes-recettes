@@ -42,14 +42,29 @@ button img {
 
 .container-infos img {
   border-radius: 10px;
-  /* width: 600px;
-  height: 400px; */
 }
 
 .infos {
   width: 100%;
   margin-left: 2rem;
   text-align: justify;
+}
+
+.container-tags {
+  width: 30vw;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.tags {
+  width: 30vw;
+  margin-left: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .recipe-field-name {
@@ -61,7 +76,6 @@ button img {
 .procedure {
   display: flex;
   flex-direction: column;
-  /* border: 1px solid var(--grey-border); */
   border-radius: 10px;
   padding: 0.5rem;
   margin-top: 2rem;

@@ -52,8 +52,6 @@ export class ListComponent {
     this.shoppingListService.removeListItem(listId, itemName);
   }
 
-  onUpdatingNameItem() {}
-
   onOpenModal(action: string) {
     this.modalService.show();
     this.actionModal = action;

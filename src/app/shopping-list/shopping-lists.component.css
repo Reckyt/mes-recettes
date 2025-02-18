@@ -5,10 +5,6 @@
 }
 
 .shopping-list {
-  overflow-y: auto;
-}
-
-.shopping-list {
   position: relative;
   width: 35%;
   border-right: 1px solid var(--grey-border);
@@ -18,8 +14,25 @@
   padding: 2rem;
 }
 
+.search-input {
+  width: 100%;
+}
+
+.search-input input {
+  width: 100%;
+  height: 2rem;
+  border: 1px solid var(--grey-border);
+  border-radius: 10px;
+  padding: 0 5px;
+}
+
 .card-container {
   width: 100%;
+}
+
+.card-container {
+  overflow-y: scroll;
+  padding-right: 20px;
 }
 
 .shopping-list-header {

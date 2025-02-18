@@ -11,20 +11,14 @@ export interface Recipe {
   variants?: string;
 }
 
-// export interface Ingredient {
-//   name: string;
-//   quantity: string;
-//   detail?: string;
-// }
-
 export interface Tag {
   id: string;
   name: string;
-  description?: string;
 }
 
 export interface NewRecipeData {
   name: string;
+  tags: Tag[];
   description: string;
   ingredients: string;
   preparation_time: number;
@@ -32,3 +26,9 @@ export interface NewRecipeData {
   instructions: string;
   portions: number;
 }
+
+// export interface Ingredient {
+//   name: string;
+//   quantity: string;
+//   detail?: string;
+// }

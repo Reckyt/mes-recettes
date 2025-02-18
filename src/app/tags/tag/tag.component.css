@@ -1,0 +1,19 @@
+.tag {
+  height: 0.8rem;
+  font-size: 0.8rem;
+  border: 1px solid var(--grey-border);
+  border-radius: 20px;
+  margin: 0.5rem 0.2rem;
+  padding: 0.5rem 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.selected {
+  color: white;
+  border-radius: 20px;
+  background-color: var(--blue-app);
+  border: 1px solid var(--grey-border);
+}

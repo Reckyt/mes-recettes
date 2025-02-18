@@ -31,20 +31,32 @@
 <div class="container-infos">
   <img src="https://placehold.co/600x400" alt="{{ recipe.name }}" />
 
-  <tbody class="infos">
-    <tr>
-      <td class="recipe-field-name">Préparation</td>
-      <td class="recipe-field-time">{{ recipe.preparation_time }} mins</td>
-    </tr>
-    <tr>
-      <td class="recipe-field-name">Cuisson</td>
-      <td class="recipe-field-time">{{ recipe.cooking_time }} mins</td>
-    </tr>
-    <tr>
-      <td class="recipe-field-name">Personnes</td>
-      <td class="recipe-field-time">{{ recipe.portions }}</td>
-    </tr>
-  </tbody>
+  <div>
+    <tbody class="infos">
+      <tr>
+        <td class="recipe-field-name">Préparation</td>
+        <td class="recipe-field-time">{{ recipe.preparation_time }} mins</td>
+      </tr>
+      <tr>
+        <td class="recipe-field-name">Cuisson</td>
+        <td class="recipe-field-time">{{ recipe.cooking_time }} mins</td>
+      </tr>
+      <tr>
+        <td class="recipe-field-name">Personnes</td>
+        <td class="recipe-field-time">{{ recipe.portions }}</td>
+      </tr>
+    </tbody>
+    @if(recipe.tags.length !== 0){
+    <div class="container-tags">
+      <h4>Catégorie</h4>
+      <div class="tags">
+        @for(tag of recipe.tags; track tag.id) {
+        <app-tag [tag]="tag" [noEdit]="true" />
+        }
+      </div>
+    </div>
+    }
+  </div>
 </div>
 @if(recipe.description) {
 <div class="description">

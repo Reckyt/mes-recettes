@@ -14,10 +14,6 @@
   padding: 2rem;
 }
 
-.recipes-list {
-  overflow-y: auto;
-}
-
 .search-input {
   width: 100%;
 }
@@ -32,6 +28,11 @@
 
 .card-container {
   width: 100%;
+}
+
+.card-container {
+  overflow-y: auto;
+  padding-right: 20px;
 }
 
 .recipes-header {

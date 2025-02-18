@@ -1,0 +1,8 @@
+<div
+  class="tag"
+  [ngClass]="{ selected: isSelected }"
+  [ngStyle]="{ cursor: noEdit ? 'default' : 'pointer' }"
+  (click)="toggleSelection()"
+>
+  <p>{{ tag.name }}</p>
+</div>

@@ -25,7 +25,7 @@ export class RecipesService {
     this.recipes.push({
       id: new Date().getTime().toString(),
       name: recipeData.name,
-      tags: [],
+      tags: recipeData.tags,
       portions: recipeData.portions,
       preparation_time: recipeData.preparation_time,
       cooking_time: recipeData.cooking_time,
@@ -47,6 +47,7 @@ export class RecipesService {
         return {
           ...recipe,
           name: recipeData.name,
+          tags: recipeData.tags,
           preparation_time: recipeData.preparation_time,
           cooking_time: recipeData.cooking_time,
           portions: recipeData.portions,

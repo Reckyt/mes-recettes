@@ -10,8 +10,14 @@
       </div>
       <h2>Mes Listes de course</h2>
     </div>
+    <div class="search-input">
+      <app-search-input
+        placeholder="Rechercher une liste..."
+        (searchInputChange)="onSearchInputChange($event)"
+      />
+    </div>
     <div class="card-container">
-      @for (list of lists; track list.id) {
+      @for (list of filteredlists; track list.id) {
       <app-item-card [item]="list" (click)="onSelectedList(list.id)" />
       }
     </div>
