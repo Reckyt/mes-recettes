@@ -9,9 +9,19 @@
     />
     <div class="icons">
       <button type="submit">
-        <img src="check.png" alt="coche blanche sur fon vert" />
+        <img
+          src="check.png"
+          alt="coche blanche sur fon vert"
+          matTooltip="Enregistrer"
+          matTooltipPosition="above"
+        />
       </button>
-      <button type="button" (click)="onAddRecipe()">
+      <button
+        type="button"
+        (click)="onAddRecipe()"
+        matTooltip="Annuler"
+        matTooltipPosition="above"
+      >
         <img src="cross.png" alt="croix blanche sur fond rouge" />
       </button>
     </div>

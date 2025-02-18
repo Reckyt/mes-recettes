@@ -5,13 +5,14 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { RecipesService } from '../recipes.service';
 import { Recipe } from '../../model/recipe';
 
 @Component({
   selector: 'app-update-recipe',
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, MatTooltipModule],
   templateUrl: './update-recipe.component.html',
   styleUrl: './update-recipe.component.css',
 })

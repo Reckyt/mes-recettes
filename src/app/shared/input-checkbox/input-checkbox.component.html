@@ -11,6 +11,8 @@
     class="item"
     id="logo"
     (click)="isUpdatingNameItem ? updateName() : onUpdateNameItem()"
+    [matTooltip]="isUpdatingNameItem ? 'Enregistrer' : 'Modifier l\'ingredient'"
+    matTooltipPosition="above"
   >
     <img
       [src]="isUpdatingNameItem ? 'check.png' : 'pencil-BW.png'"
@@ -21,6 +23,8 @@
     class="item"
     id="logo"
     (click)="isUpdatingNameItem ? onUpdateNameItem() : onDelete()"
+    [matTooltip]="isUpdatingNameItem ? 'Annuler' : 'Supprimer l\'ingredient'"
+    matTooltipPosition="above"
   >
     <img [src]="isUpdatingNameItem ? 'cross.png' : 'cancel.png'" alt="croix" />
   </div>

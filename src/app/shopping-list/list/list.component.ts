@@ -1,5 +1,6 @@
 import { Component, inject, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { List } from '../../model/list';
 import { ShoppingListsService } from '../shopping-lists.service';
@@ -17,6 +18,7 @@ import { SearchInputComponent } from '../../shared/search-input/search-input.com
     FormsModule,
     InputCheckboxComponent,
     SearchInputComponent,
+    MatTooltipModule,
   ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css',

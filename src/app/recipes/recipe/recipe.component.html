@@ -2,12 +2,28 @@
   <h1>{{ recipe.name }}</h1>
   <div class="icons">
     <button>
-      <img src="caddie.png" alt="caddie" (click)="onAddIngredientsToList()" />
+      <img
+        src="caddie.png"
+        alt="caddie"
+        (click)="onAddIngredientsToList()"
+        matTooltip="Ajouter des ingredients à une liste"
+        matTooltipPosition="above"
+      />
     </button>
-    <button type="button" (click)="onUpdateRecipe()">
+    <button
+      type="button"
+      (click)="onUpdateRecipe()"
+      matTooltip="Modifier la recette"
+      matTooltipPosition="above"
+    >
       <img src="pencil.png" alt="crayon pour modifier" />
     </button>
-    <button type="button" (click)="onDeleteRecipe()">
+    <button
+      type="button"
+      (click)="onOpenModal()"
+      matTooltip="Supprimer la recette"
+      matTooltipPosition="above"
+    >
       <img src="cross.png" alt="croix blanche sur fond rouge pour supprimer" />
     </button>
   </div>
@@ -63,5 +79,9 @@
   (closeMenu)="onAddIngredientsToList()"
   title="Selectionner les ingrédients pour vos courses"
 />
-
+} @if(isOpeningModal()) {
+<app-confirmation-modal
+  (confirm)="onDeleteRecipe()"
+  title="Confirmer la suppression"
+/>
 }

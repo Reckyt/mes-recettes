@@ -2,10 +2,15 @@
   <div class="title">
     <input type="text" id="name" formControlName="name" />
     <div class="icons">
-      <button type="submit">
+      <button type="submit" matTooltip="Enregistrer" matTooltipPosition="above">
         <img src="check.png" alt="coche blanche sur fond vert" />
       </button>
-      <button type="button" (click)="onUpdateRecipe()">
+      <button
+        type="button"
+        (click)="onUpdateRecipe()"
+        matTooltip="Annuler"
+        matTooltipPosition="above"
+      >
         <img src="cross.png" alt="croix blanche sur fond rouge" />
       </button>
     </div>

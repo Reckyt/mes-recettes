@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { ItemCardComponent } from '../shared/item-card/item-card.component';
 import { ShoppingListsService } from './shopping-lists.service';
@@ -13,6 +14,7 @@ import { NewListModalComponent } from '../shared/modal/new-list-modal/new-list-m
     NewListModalComponent,
     NoListComponent,
     ListComponent,
+    MatTooltipModule,
   ],
   templateUrl: './shopping-lists.component.html',
   styleUrl: './shopping-lists.component.css',

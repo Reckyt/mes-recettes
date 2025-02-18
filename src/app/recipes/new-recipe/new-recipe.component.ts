@@ -1,11 +1,12 @@
 import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { RecipesService } from '../recipes.service';
 
 @Component({
   selector: 'app-new-recipe',
-  imports: [FormsModule],
+  imports: [FormsModule, MatTooltipModule],
   templateUrl: './new-recipe.component.html',
   styleUrl: './new-recipe.component.css',
 })

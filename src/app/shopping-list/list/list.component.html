@@ -13,10 +13,20 @@
     (searchInputChange)="onSearchInputChange($event)"
   />
   <div class="icons">
-    <button type="button" (click)="onOpenModal('update')">
+    <button
+      type="button"
+      (click)="onOpenModal('update')"
+      matTooltip="Modifier nom de la liste"
+      matTooltipPosition="above"
+    >
       <img src="pencil.png" alt="crayon pour modifier" />
     </button>
-    <button type="button" (click)="onOpenModal('delete')">
+    <button
+      type="button"
+      (click)="onOpenModal('delete')"
+      matTooltip="Supprimer la liste"
+      matTooltipPosition="above"
+    >
       <img src="cross.png" alt="croix blanche sur fond rouge pour supprimer" />
     </button>
   </div>

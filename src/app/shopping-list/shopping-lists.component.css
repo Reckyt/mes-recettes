@@ -5,6 +5,10 @@
 }
 
 .shopping-list {
+  overflow-y: auto;
+}
+
+.shopping-list {
   position: relative;
   width: 35%;
   border-right: 1px solid var(--grey-border);

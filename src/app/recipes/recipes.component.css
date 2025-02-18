@@ -14,6 +14,10 @@
   padding: 2rem;
 }
 
+.recipes-list {
+  overflow-y: auto;
+}
+
 .search-input {
   width: 100%;
 }

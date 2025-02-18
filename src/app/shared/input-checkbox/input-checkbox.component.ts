@@ -5,12 +5,13 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { ShoppingListsService } from '../../shopping-list/shopping-lists.service';
 
 @Component({
   selector: 'app-input-checkbox',
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, MatTooltipModule],
   templateUrl: './input-checkbox.component.html',
   styleUrl: './input-checkbox.component.css',
 })

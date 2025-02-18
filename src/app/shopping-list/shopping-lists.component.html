@@ -16,7 +16,15 @@
       }
     </div>
 
-    <button class="add-button" type="button" (click)="onAddList()">+</button>
+    <button
+      class="add-button"
+      type="button"
+      (click)="onAddList()"
+      matTooltip="Ajouter nouvelle liste"
+      matTooltipPosition="above"
+    >
+      +
+    </button>
   </div>
 
   @if(selectedList) {

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { Recipe } from '../model/recipe';
 import { RecipesService } from './recipes.service';
@@ -20,6 +21,7 @@ import { SearchInputComponent } from '../shared/search-input/search-input.compon
     NoRecipeComponent,
     ItemCardComponent,
     SearchInputComponent,
+    MatTooltipModule,
   ],
 })
 export class RecipesComponent {
