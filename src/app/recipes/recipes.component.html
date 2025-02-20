@@ -5,6 +5,28 @@
         <img src="meal.png" alt="plat" />
       </div>
       <h2>Mes Recettes</h2>
+      <div
+        id="sort"
+        (click)="isSort()"
+        [matTooltip]="isSorting ? 'Retirer les filtres' : 'Filtres'"
+        matTooltipPosition="above"
+        [ngStyle]="{ backgroundColor: isSorting ? '#eee8f2' : '' }"
+      >
+        <img src="sort.png" alt="trie" />
+      </div>
+      @if(isSorting) {
+      <div class="container-sorting">
+        <div class="sorting" (click)="toggleSortOrder()">
+          Nom
+          <img
+            id="chevron"
+            [src]="aToz ? 'chevron-down.png' : 'chevron-up.png'"
+            alt="plat"
+          />
+        </div>
+        <div class="sorting" (click)="filterWithTags()">Tag</div>
+      </div>
+      }
     </div>
     <div class="search-input">
       <app-search-input
@@ -13,7 +35,7 @@
       />
     </div>
     <div class="card-container">
-      @for (recipe of filteredRecipes; track recipe.id) {
+      @for (recipe of displayedRecipes; track recipe.id) {
       <app-item-card [item]="recipe" (click)="onSelectRecipe(recipe.id)" />
       }
     </div>
