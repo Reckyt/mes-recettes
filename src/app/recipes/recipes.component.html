@@ -24,7 +24,19 @@
             alt="plat"
           />
         </div>
-        <div class="sorting" (click)="filterWithTags()">Tag</div>
+        <div class="sorting" (click)="isFilteredWithTags()">Tag</div>
+        @if(isFilteredByTag) {
+        <div class="container-tags">
+          @for(tag of tags; track tag.id) {
+
+          <app-tag
+            [tag]="tag"
+            [isSelected]="selectedTags.includes(tag)"
+            (selectionChange)="onFilteredWithTags($event)"
+          />
+          }
+        </div>
+        }
       </div>
       }
     </div>

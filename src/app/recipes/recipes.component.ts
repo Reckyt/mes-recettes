@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-import { Recipe } from '../model/recipe';
+import { Recipe, Tag } from '../model/recipe';
 import { RecipesService } from './recipes.service';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
 import { RecipeComponent } from './recipe/recipe.component';
@@ -10,6 +10,8 @@ import { NoRecipeComponent } from './no-recipe/no-recipe.component';
 import { ItemCardComponent } from '../shared/item-card/item-card.component';
 import { SearchInputComponent } from '../shared/search-input/search-input.component';
 import { CommonModule } from '@angular/common';
+import { TagsService } from '../tags/tags.service';
+import { TagComponent } from '../tags/tag/tag.component';
 
 @Component({
   selector: 'app-recipes',
@@ -24,6 +26,7 @@ import { CommonModule } from '@angular/common';
     SearchInputComponent,
     MatTooltipModule,
     CommonModule,
+    TagComponent,
   ],
 })
 export class RecipesComponent implements OnInit {
@@ -32,13 +35,20 @@ export class RecipesComponent implements OnInit {
   isUpdatingRecipe: boolean = false;
   searchInput: string = '';
   isSorting: boolean = false;
+  isFilteredByTag: boolean = false;
   aToz: boolean = true;
   displayedRecipes: Recipe[] = [];
+  tags: Tag[] = [];
+  selectedTags: Tag[] = [];
 
-  constructor(private recipesService: RecipesService) {}
+  constructor(
+    private recipesService: RecipesService,
+    private tagsService: TagsService
+  ) {}
 
   ngOnInit() {
     this.displayedRecipes = this.recipesService.getRecipes();
+    this.tags = this.tagsService.getTags();
   }
 
   get recipes() {
@@ -81,6 +91,11 @@ export class RecipesComponent implements OnInit {
       .filter((recipe) =>
         recipe.name.toLowerCase().includes(this.searchInput.toLowerCase())
       )
+      // .filter((recipe) => {
+      //   return this.selectedTags.length > 0
+      //     ? this.selectedTags.some((tag) => recipe.tags.includes(tag))
+      //     : true;
+      // })
       .sort((a, b) => {
         if (this.aToz) {
           return a.name.localeCompare(b.name);
@@ -100,5 +115,18 @@ export class RecipesComponent implements OnInit {
     this.updateDisplayedRecipes();
   }
 
-  filterWithTags() {}
+  // TODO filtering functions ============================================
+
+  isFilteredWithTags() {
+    this.isFilteredByTag = !this.isFilteredByTag;
+  }
+
+  onFilteredWithTags(tag: Tag) {
+    if (this.selectedTags.includes(tag)) {
+      this.selectedTags = this.selectedTags.filter((t) => t !== tag);
+    } else {
+      this.selectedTags.push(tag);
+    }
+    this.updateDisplayedRecipes();
+  }
 }
