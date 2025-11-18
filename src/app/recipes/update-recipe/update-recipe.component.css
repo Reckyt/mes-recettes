@@ -1,0 +1,142 @@
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  height: 32px;
+}
+
+.title h1 {
+  width: 80%;
+  height: 32px;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icons button {
+  width: 1.3rem;
+  height: 1.3rem;
+  margin: 0 0.5rem;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+button img {
+  width: 100%;
+}
+
+.container-infos {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 30vh;
+}
+
+.container-infos img {
+  border-radius: 10px;
+}
+
+.infos {
+  width: 100%;
+  margin-left: 2rem;
+  text-align: justify;
+}
+
+.container-tags {
+  width: 30vw;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.tags {
+  width: 30vw;
+  margin-left: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.recipe-field-name {
+  padding: 0.5rem;
+  font-weight: bold;
+}
+
+.description,
+.procedure {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin-top: 2rem;
+}
+
+.description h4,
+.procedure h4 {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.container-procedure {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 1rem;
+}
+
+.procedure {
+  width: 48%;
+}
+
+.add-procedure {
+  color: var(--blue-app);
+  font-weight: bold;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+/* =================== INPUT ========================= */
+
+input,
+textarea {
+  border: 1px solid var(--grey-border);
+  border-radius: 10px;
+  padding: 0 5px;
+}
+
+#name,
+#description,
+#ingredients,
+#instructions {
+  width: 100%;
+}
+
+#preparation_time,
+#cooking_time,
+#portions {
+  width: 2rem;
+  height: 2rem;
+}
+
+#name {
+  height: 2rem;
+}
+
+#description {
+  height: 4rem;
+}
+
+#ingredients,
+#instructions {
+  height: 10rem;
+}

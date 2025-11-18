@@ -1,24 +1,66 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
-import { RecipeCardComponent } from '../shared/recipe-card/recipe-card.component';
 import { Recipe } from '../model/recipe';
+import { RecipesService } from './recipes.service';
+import { NewRecipeComponent } from './new-recipe/new-recipe.component';
+import { RecipeComponent } from './recipe/recipe.component';
+import { UpdateRecipeComponent } from './update-recipe/update-recipe.component';
+import { NoRecipeComponent } from './no-recipe/no-recipe.component';
+import { ItemCardComponent } from '../shared/item-card/item-card.component';
+import { SearchInputComponent } from '../shared/search-input/search-input.component';
 
 @Component({
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
   styleUrl: './recipes.component.css',
-  imports: [RecipeCardComponent],
+  imports: [
+    RecipeComponent,
+    NewRecipeComponent,
+    UpdateRecipeComponent,
+    NoRecipeComponent,
+    ItemCardComponent,
+    SearchInputComponent,
+    MatTooltipModule,
+  ],
 })
 export class RecipesComponent {
-  @Input({ required: true }) recipes!: Recipe[];
-  @Output() select = new EventEmitter();
-  @Output() isAddingRecipe = new EventEmitter();
+  selectedRecipeId?: string;
+  isAddingRecipe: boolean = false;
+  isUpdatingRecipe: boolean = false;
+  searchInput: string = '';
 
-  onSelectRecipe(recipeId: string) {
-    this.select.emit(recipeId);
+  constructor(private recipesService: RecipesService) {}
+
+  get recipes() {
+    return this.recipesService.getRecipes();
+  }
+
+  onSelectRecipe(id: string) {
+    this.selectedRecipeId = id;
+  }
+
+  get selectedRecipe() {
+    return this.recipes.find(
+      (recipe: Recipe) => recipe.id === this.selectedRecipeId
+    );
   }
 
   onAddRecipe() {
-    this.isAddingRecipe.emit();
+    this.isAddingRecipe = !this.isAddingRecipe;
+  }
+
+  onUpdateRecipe() {
+    this.isUpdatingRecipe = !this.isUpdatingRecipe;
+  }
+
+  get filteredRecipes() {
+    return this.recipes.filter((recipe) =>
+      recipe.name.toLowerCase().includes(this.searchInput.toLowerCase())
+    );
+  }
+
+  onSearchInputChange(query: string) {
+    this.searchInput = query;
   }
 }

@@ -1,34 +1,99 @@
-<div class="container-title">
+<div class="title">
   <h1>{{ recipe.name }}</h1>
   <div class="icons">
-    <button type="button" (click)="onUpdateRecipe()">
-      <img src="pencil.png" alt="modifier" />
+    <button>
+      <img
+        src="caddie.png"
+        alt="caddie"
+        (click)="onAddIngredientsToList()"
+        matTooltip="Ajouter des ingredients à une liste"
+        matTooltipPosition="above"
+      />
     </button>
-    <button type="button" (click)="onDeleteRecipe()">
-      <img src="cross.png" alt="supprimer" />
+    <button
+      type="button"
+      (click)="onUpdateRecipe()"
+      matTooltip="Modifier la recette"
+      matTooltipPosition="above"
+    >
+      <img src="pencil.png" alt="crayon pour modifier" />
+    </button>
+    <button
+      type="button"
+      (click)="onOpenModal()"
+      matTooltip="Supprimer la recette"
+      matTooltipPosition="above"
+    >
+      <img src="cross.png" alt="croix blanche sur fond rouge pour supprimer" />
     </button>
   </div>
 </div>
-<div>
-  <img src="" alt="" />
+<div class="container-infos">
+  <img src="https://placehold.co/600x400" alt="{{ recipe.name }}" />
+
   <div>
-    <p>Préparation {{ recipe.preparation_time }} mins</p>
-    <p>Cuisson {{ recipe.cooking_time }} mins</p>
+    <tbody class="infos">
+      <tr>
+        <td class="recipe-field-name">Préparation</td>
+        <td class="recipe-field-time">{{ recipe.preparation_time }} mins</td>
+      </tr>
+      <tr>
+        <td class="recipe-field-name">Cuisson</td>
+        <td class="recipe-field-time">{{ recipe.cooking_time }} mins</td>
+      </tr>
+      <tr>
+        <td class="recipe-field-name">Personnes</td>
+        <td class="recipe-field-time">{{ recipe.portions }}</td>
+      </tr>
+    </tbody>
+    @if(recipe.tags.length !== 0){
+    <div class="container-tags">
+      <h4>Catégorie</h4>
+      <div class="tags">
+        @for(tag of recipe.tags; track tag.id) {
+        <app-tag [tag]="tag" [noEdit]="true" />
+        }
+      </div>
+    </div>
+    }
   </div>
 </div>
-<h5>Description</h5>
-<p>{{ recipe.description }}</p>
-<div>
-  <h5>Ingrédients</h5>
-  <p>{{ recipe.ingredients }}</p>
-  <button type="button" (click)="onUpdateRecipe()">
-    Ajouter des ingrédients
-  </button>
+@if(recipe.description) {
+<div class="description">
+  <h4>Description</h4>
+  <p>{{ recipe.description }}</p>
 </div>
-<div>
-  <h5>Instructions</h5>
-  <p>{{ recipe.instructions }}</p>
-  <button type="button" (click)="onUpdateRecipe()">
-    Ajouter des instructions
-  </button>
+}
+<div class="container-procedure">
+  <div class="procedure" id="ingredient">
+    <h4>Ingrédients</h4>
+    <ul>
+      @for(line of recipe.ingredients.split('\n'); track recipe.id) {
+      <li>{{ line }}</li>
+      }
+    </ul>
+    <p class="add-procedure" (click)="onUpdateRecipe()">
+      Ajouter des ingrédients
+    </p>
+  </div>
+  <div class="procedure">
+    <h4>Instructions</h4>
+    <p class="instructions">{{ recipe.instructions }}</p>
+    <p class="add-procedure" (click)="onUpdateRecipe()">
+      Ajouter des instructions
+    </p>
+  </div>
 </div>
+
+@if(isAddingIngredientsToList) {
+<app-ingredients-to-list-modal
+  [ingredients]="recipe.ingredients"
+  (closeMenu)="onAddIngredientsToList()"
+  title="Selectionner les ingrédients pour vos courses"
+/>
+} @if(isOpeningModal()) {
+<app-confirmation-modal
+  (confirm)="onDeleteRecipe()"
+  title="Confirmer la suppression"
+/>
+}

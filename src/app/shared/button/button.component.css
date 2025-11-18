@@ -1,0 +1,10 @@
+button {
+  /* width: 20rem; */
+  color: #fff;
+  padding: 0.7rem;
+  border-radius: 20px;
+  border: none;
+  background-color: var(--blue-app);
+  cursor: pointer;
+  /* margin: 1rem; */
+}

@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
 import { recipes } from '../../asset/recipesList';
 import { NewRecipeData, Recipe } from '../model/recipe';
 
 @Injectable({ providedIn: 'root' })
 export class RecipesService {
-  private recipes = recipes;
+  private recipes: Recipe[] = recipes;
 
   constructor() {
     const recipes = localStorage.getItem('recipes');
@@ -15,6 +15,8 @@ export class RecipesService {
     }
   }
 
+  selectedRecipeId = signal<string | undefined>(undefined);
+
   getRecipes() {
     return this.recipes;
   }
@@ -23,8 +25,8 @@ export class RecipesService {
     this.recipes.push({
       id: new Date().getTime().toString(),
       name: recipeData.name,
-      tags: [],
-      portions: 0,
+      tags: recipeData.tags,
+      portions: recipeData.portions,
       preparation_time: recipeData.preparation_time,
       cooking_time: recipeData.cooking_time,
       description: recipeData.description,
@@ -45,8 +47,10 @@ export class RecipesService {
         return {
           ...recipe,
           name: recipeData.name,
+          tags: recipeData.tags,
           preparation_time: recipeData.preparation_time,
           cooking_time: recipeData.cooking_time,
+          portions: recipeData.portions,
           description: recipeData.description,
           ingredients: recipeData.ingredients,
           instructions: recipeData.instructions,

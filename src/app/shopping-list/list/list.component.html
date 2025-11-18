@@ -1,0 +1,52 @@
+@if(isOpeningModal() && actionModal === 'update') {
+<app-update-list-name-modal [list]="list" title="Modifier le nom" />
+} @if(isOpeningModal() && actionModal === "delete") {
+<app-confirmation-modal
+  title="Confirmer la suppression ?"
+  (confirm)="onRemoveList(list.id)"
+/>
+}
+<div class="title">
+  <h1>{{ list.name }}</h1>
+  <app-search-input
+    placeholder="Rechercher un élément..."
+    (searchInputChange)="onSearchInputChange($event)"
+  />
+  <div class="icons">
+    <button
+      type="button"
+      (click)="onOpenModal('update')"
+      matTooltip="Modifier nom de la liste"
+      matTooltipPosition="above"
+    >
+      <img src="pencil.png" alt="crayon pour modifier" />
+    </button>
+    <button
+      type="button"
+      (click)="onOpenModal('delete')"
+      matTooltip="Supprimer la liste"
+      matTooltipPosition="above"
+    >
+      <img src="cross.png" alt="croix blanche sur fond rouge pour supprimer" />
+    </button>
+  </div>
+</div>
+<div class="new-element">
+  <div id="add">
+    <img src="add.png" alt="plus" (click)="onAddItem(list.id, enteredItem)" />
+  </div>
+  <input
+    type="text"
+    name="item"
+    placeholder="Nouvelle élément"
+    [(ngModel)]="enteredItem"
+    (keyup.enter)="onAddItem(list.id, enteredItem)"
+  />
+</div>
+@for(item of filteredItem; track item) {
+<app-input-checkbox
+  [item]="item"
+  (delete)="onRemoveListItem(list.id, item)"
+  [listId]="list.id"
+/>
+}

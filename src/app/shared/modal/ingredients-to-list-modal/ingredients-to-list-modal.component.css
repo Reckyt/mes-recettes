@@ -1,0 +1,130 @@
+.modal {
+  min-height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f9f9f9;
+  margin: 1rem;
+}
+
+.modal-title {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#logo {
+  position: absolute;
+  top: -8px;
+  left: 5px;
+  width: 1.4rem;
+  height: 1.4rem;
+  background-color: #eee8f2;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#logo img {
+  width: 100%;
+  filter: drop-shadow(0 0 4px rgba(29, 29, 29, 0.35));
+}
+
+.modal-title h2 {
+  width: 80%;
+  text-align: center;
+}
+
+/* ================================================================== */
+
+.main-container {
+  width: 90%;
+  margin: 2rem 0rem;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.container-ingredients,
+.container-lists {
+  flex: 1;
+  flex-wrap: wrap;
+  margin: 10px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button-action {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.lists,
+.ingredients {
+  display: flex;
+  flex-direction: row;
+}
+
+h4 {
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  color: #333;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+label {
+  font-size: 1em;
+  color: #555;
+}
+
+.container-lists input[type="radio"] {
+  margin-bottom: 10px;
+}
+
+.container-lists label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.container-ingredients input[type="checkbox"] {
+  margin-bottom: 10px;
+}
+
+.container-ingredients label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.container-ingredients,
+.container-lists {
+  max-height: 18rem;
+  overflow-y: auto;
+}
+
+.container-lists::-webkit-scrollbar,
+.container-ingredients::-webkit-scrollbar {
+  width: 8px;
+}
+
+.container-lists::-webkit-scrollbar,
+.container-ingredients::-webkit-scrollbar-thumb {
+  background-color: #a4a4a4;
+  border-radius: 4px;
+}
+
+.container-lists::-webkit-scrollbar,
+.container-ingredients::-webkit-scrollbar-track {
+  background-color: #f2f2f2;
+}

@@ -1,0 +1,83 @@
+.main-container {
+  display: flex;
+  flex-direction: row;
+  height: 90vh;
+}
+
+.shopping-list {
+  position: relative;
+  width: 35%;
+  border-right: 1px solid var(--grey-border);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2rem;
+}
+
+.search-input {
+  width: 100%;
+}
+
+.search-input input {
+  width: 100%;
+  height: 2rem;
+  border: 1px solid var(--grey-border);
+  border-radius: 10px;
+  padding: 0 5px;
+}
+
+.card-container {
+  width: 100%;
+}
+
+.card-container {
+  overflow-y: scroll;
+  padding-right: 20px;
+}
+
+.shopping-list-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+#logo {
+  width: 1.8rem;
+  height: 1.8rem;
+  background-color: #eee8f2;
+  padding: 0.2rem;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.35);
+}
+
+#logo img {
+  width: 100%;
+  filter: drop-shadow(0 0 4px rgba(29, 29, 29, 0.35));
+}
+
+.add-button {
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--blue-app);
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 100;
+  border: none;
+  border-radius: 50%;
+  line-height: 3rem;
+}
+
+app-list,
+app-no-list {
+  width: 65%;
+  margin: 1rem 2rem;
+}

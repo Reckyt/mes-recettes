@@ -1,10 +1,44 @@
-<div class="container">
-  <div id="logo">
-    <img src="meal.png" alt="plat" />
+<div class="recipes-container">
+  <div class="recipes-list">
+    <div class="recipes-header">
+      <div id="logo">
+        <img src="meal.png" alt="plat" />
+      </div>
+      <h2>Mes Recettes</h2>
+    </div>
+    <div class="search-input">
+      <app-search-input
+        placeholder="Rechercher une recette..."
+        (searchInputChange)="onSearchInputChange($event)"
+      />
+    </div>
+    <div class="card-container">
+      @for (recipe of filteredRecipes; track recipe.id) {
+      <app-item-card [item]="recipe" (click)="onSelectRecipe(recipe.id)" />
+      }
+    </div>
+
+    <button
+      class="add-button"
+      type="button"
+      (click)="onAddRecipe()"
+      matTooltip="Ajouter nouvelle recette"
+      matTooltipPosition="above"
+    >
+      +
+    </button>
   </div>
-  <h2>Mes Recettes</h2>
+
+  @if(selectedRecipe && !isAddingRecipe && !isUpdatingRecipe) {
+  <app-recipe [recipe]="selectedRecipe" (isUpdatingRecipe)="onUpdateRecipe()" />
+  } @else if(isAddingRecipe ) {
+  <app-new-recipe (isAddingRecipe)="onAddRecipe()" />
+  } @else if(isUpdatingRecipe ) {
+  <app-update-recipe
+    [recipe]="selectedRecipe"
+    (isUpdatingRecipe)="onUpdateRecipe()"
+  />
+  } @else {
+  <app-no-recipe />
+  }
 </div>
-@for (recipe of recipes; track recipe.id) {
-<app-recipe-card [recipe]="recipe" (click)="onSelectRecipe(recipe.id)" />
-}
-<button type="button" (click)="onAddRecipe()">+</button>

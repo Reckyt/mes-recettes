@@ -1,51 +1,103 @@
 <form (ngSubmit)="onSubmit()">
-  <input type="text" id="name" name="name" [(ngModel)]="enteredName" />
-  <button type="button" (click)="onAddRecipe()">Annuler</button>
-  <button type="submit">Enregistrer</button>
-  <div>
-    <img src="" alt="" />
-    <div>
-      <p>
-        Préparation
-        <input
-          type="number"
-          id="preparation_time"
-          name="preparation_time"
-          [(ngModel)]="enteredPreparationTime"
+  <div class="title">
+    <input
+      type="text"
+      id="name"
+      name="name"
+      placeholder="Nom du plat"
+      [(ngModel)]="enteredName"
+    />
+    <div class="icons">
+      <button type="submit">
+        <img
+          src="check.png"
+          alt="coche blanche sur fon vert"
+          matTooltip="Enregistrer"
+          matTooltipPosition="above"
         />
-        mins
-      </p>
-      <p>
-        Cuisson
-        <input
-          type="number"
-          id="cooking_time"
-          name="cooking_time"
-          [(ngModel)]="enteredCookingTime"
-        />mins
-      </p>
+      </button>
+      <button
+        type="button"
+        (click)="onAddRecipe()"
+        matTooltip="Annuler"
+        matTooltipPosition="above"
+      >
+        <img src="cross.png" alt="croix blanche sur fond rouge" />
+      </button>
     </div>
   </div>
-  <h5>Description</h5>
-  <textarea
-    name="description"
-    id="description"
-    [(ngModel)]="enteredDescription"
-  ></textarea>
-  <div>
-    <h5>Ingrédients</h5>
+  <div class="container-infos">
+    <img src="https://placehold.co/600x400" alt="" />
+    <div>
+      <tbody class="infos">
+        <tr>
+          <td class="recipe-field-name">Préparation</td>
+          <input
+            type="number"
+            id="preparation_time"
+            name="preparation_time"
+            [(ngModel)]="enteredPreparationTime"
+          />
+          mins
+        </tr>
+        <tr>
+          <td class="recipe-field-name">Cuisson</td>
+          <input
+            type="number"
+            id="cooking_time"
+            name="cooking_time"
+            [(ngModel)]="enteredCookingTime"
+          />
+          mins
+        </tr>
+        <tr>
+          <td class="recipe-field-name">Personnes</td>
+          <input
+            type="number"
+            id="portions"
+            name="portions"
+            [(ngModel)]="enteredPortions"
+          />
+        </tr>
+      </tbody>
+      <div class="container-tags">
+        <h4>Catégorie</h4>
+        <div class="tags">
+          @for(tag of tags; track tag.id) {
+          <app-tag
+            [tag]="tag"
+            [isSelected]="selectedTags.includes(tag)"
+            (selectionChange)="onSelectionChange($event)"
+          />
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="description">
+    <h4>Description</h4>
     <textarea
-      name="enteredIngredients"
-      id="enteredIngredients"
-      [(ngModel)]="enteredIngredients"
+      name="description"
+      id="description"
+      [(ngModel)]="enteredDescription"
     ></textarea>
   </div>
-  <div>
-    <h5>Instructions</h5>
-    <textarea
-      name="enteredInstructions"
-      id="enteredInstructions"
-      [(ngModel)]="enteredInstructions"
-    ></textarea>
+  <div class="container-procedure">
+    <div class="procedure">
+      <h4>Ingrédients</h4>
+      <textarea
+        name="enteredIngredients"
+        id="ingredients"
+        [(ngModel)]="enteredIngredients"
+      ></textarea>
+    </div>
+    <div class="procedure">
+      <h4>Instructions</h4>
+      <textarea
+        name="enteredInstructions"
+        id="instructions"
+        [(ngModel)]="enteredInstructions"
+      ></textarea>
+    </div>
   </div>
 </form>

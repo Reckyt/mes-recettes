@@ -1,0 +1,62 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.item {
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.last {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: auto;
+}
+
+#logo {
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#logo img {
+  width: 100%;
+}
+
+#logo img:hover {
+  filter: drop-shadow(0 0 4px rgba(29, 29, 29, 0.8));
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+}
+
+input[type="checkbox"] {
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  background: #fff;
+  border: 1px solid var(--grey-border);
+}
+
+input[type="checkbox"]:checked {
+  background: var(--blue-app);
+  /* margin: 0px; */
+  position: relative;
+  &:before {
+    font-family: FontAwesome;
+    content: "✓";
+    display: block;
+    color: white;
+    font-size: 15px;
+    top: 0;
+    left: 5px;
+    position: absolute;
+  }
+}
